@@ -1,5 +1,6 @@
 // external angular packages
 require('angular-ui-router');
+require('angular-material');
 
 require('./controllers');
 require('./directives');

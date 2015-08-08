@@ -3,15 +3,23 @@
 // ==========================================================================
 
 .header {
-  height:75px;
+  height:62px;
   width:100%;
   position:fixed;
   top:0;
   left:0;
   background:$var-white;
   color:$var-blue;
-  border-bottom:1px solid $var-blue;
   z-index: 777;
+  .signin {
+    font-size:30px;
+    margin:10px 0 0;
+    color:$var-purple;
+  }
+  img {
+    width: 170px;
+    margin:12px 0px 0 20px;
+  }
   @extend %list-reset;
   @extend %list-inline;
   @include transition-all(0.5s);
@@ -47,7 +55,7 @@
     font-family:$open-sans;
     color:$var-blue;
     &:hover {
-      color:$var-red;
+      color:$alt-purple;
     }
   }
   @extend %list-reset;

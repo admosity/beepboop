@@ -10,11 +10,35 @@ router.get('/', function(req, res){
   res.ok(true);
 });
 
+router.post('/:id', function(req, res){
+  var user = req.user;
+  var id = req.params.id;
+  var post = req.body;
+  if(user && id && post.device){
+    // Device.find({}, function(){});
+    // var newPhoto = new Photo({
+    //   url: post.url,
+    //   owner: user,
+    //   voteCount: 0
+    // });
+    // newPhoto.save(function(err){
+    //   if(!err){
+    //     res.ok(true);
+    //   }else{
+    //     res.error(401, "Failed to post photo");
+    //   }
+    // });
+  }else{
+    res.error("404", "Page not found");
+  }
+});
+
 router.post('/', function(req, res){
   var user = req.user;
   var post = req.body;
   if(user && post.device){
     var device = new Device({
+      owner: user,
       
     });
     // var newPhoto = new Photo({

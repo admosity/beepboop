@@ -88,11 +88,11 @@ gulp.task('client-scripts', function() {
     })
   ]);
 
-  return gulp.src('client/js/app.js')
+  return gulp.src(['client/js/app.js', 'client/js/vendor.js'])
     .pipe(plumber({
       errorHandler: scriptsErrorHandler
     }))
-    .pipe(named()) // used named for following the naming convention for files
+    // .pipe(named()) // used named for following the naming convention for files
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest('dist/public/js'));
 });

@@ -23,7 +23,14 @@ module.exports = {
   cache: true,
 
 
+  entry: {
+    app: path.join(__dirname, 'client/js/app.js'),
+    vendor: path.join(__dirname, 'client/js/vendor.js')
+  },
 
+  output: {
+    filename: '[name].js',
+  },
   // create source maps
   devtool: 'source-map',
 
@@ -66,7 +73,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       jQuery: "jquery",
-      angular: 'angular',
+      // angular: 'angular',
     }),
     // Keep the angular dependency format DRY
     new ngAnnotatePlugin({

@@ -8,11 +8,8 @@ var Router = require('express').Router
 require('../models/Device');
 var Device = mongoose.model('Device');
 
-////////////////////////
-// User facing device endpoints 
-////////////////////////
 
-router.use('/:id', function(req, res, next) {
+function loadDeviceMiddleware(req, res, next) {
   Device.findById(req.params.id, function(err, device) {
     if(!device) {
       return res.error(404);
@@ -22,7 +19,12 @@ router.use('/:id', function(req, res, next) {
     req.device = device;
     return next();
   });
-});
+}
+
+////////////////////////
+// User facing device endpoints 
+////////////////////////
+
 
 // Retrieve devices 
 router.get('/', function(req, res){
@@ -31,12 +33,10 @@ router.get('/', function(req, res){
   });
 });
 
-// binded to /:id
-var deviceIdRouter = Router();
 
-deviceIdRouter
-  .route('/')
-  .get(function(req, res) {
+router
+  .route('/:id')
+  .get(loadDeviceMiddleware, function(req, res) {
     var id = req.params.id;
     return Device.findOne({_id: id, owner: req.user }, function(err, device) {
       if(!device) {
@@ -46,7 +46,7 @@ deviceIdRouter
       }
     })
   })
-  .post(function(req, res) {
+  .post(loadDeviceMiddleware, function(req, res) {
     var user = req.user;
     var id = req.params.id;
     var post = req.body;
@@ -122,6 +122,5 @@ router.get('/:id/payload', function(req, res) {
 
 });
 
-router.use('/:id', deviceIdRouter);
 
 module.exports = router;

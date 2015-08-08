@@ -8,7 +8,9 @@
 				"core",
 				"bower_components",
 				"lib",
-				"database"
+				"database",
+				"dist",
+				"build"
 			],
 			"follow_symlinks": true,
 			"path": "."

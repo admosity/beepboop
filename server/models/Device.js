@@ -6,9 +6,9 @@ var DeviceSchema = new Schema({
   dateCreated: {type: Date, default: Date.now},
 
   payload:     Schema.Types.Mixed,
-  readKey:     {type: String}
+  readKey:     {type: String, unique: true},
   callbackUrl: {type: String},
-  
+
   filters: [{
     _id: false,
     variableA: {type: String},

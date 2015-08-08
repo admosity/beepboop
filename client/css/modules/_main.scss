@@ -3,7 +3,7 @@
 // ==========================================================================
 
 body {
-  background:$light-grey;
+  background:$var-white;
 }
 h1, h3 {
   font-family: $open-sans;
@@ -15,12 +15,39 @@ p {
 
 a { color:$var-white; }
 
-.perfect-full-size-bg {
-  background:url('../images/bg.png') no-repeat center center fixed;
+/* .perfect-full-size-bg {
+  background:url('/images/bg.png') no-repeat center center fixed;
+
+} */
+
+.hero {
+  float:left;
+  clear:both;
+  margin-top:4em;
+  text-align: center;
+  width:100%;
+  background:url('../assets/images/hero.png');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height:400px;
+  .get-started {
+    display: block;
+    margin: 30px auto;
+    a {
+      font-family:$lato;
+      font-size:25px;
+    }
+  }
+  h1 {
+    color:$var-white;
+    font-family:$lato;
+    font-weight:300;
+    font-size: 50px;
+    text-align: center;
+    margin:100px auto 0;
+  }
 }
 
 quote {

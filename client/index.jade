@@ -1,10 +1,24 @@
 doctype html
 html(lang="en")
   head
-    title Mean Stack
+    title beepboop
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel="stylesheet", href="/css/app.css")
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
   body
+  
+  div.header
+    div.column-3
+      img(src="/assets/images/logo.png", alt="")
+    div.column-7 &nbsp;
+    div.column-2 
+      a(href="" class="signin")
+        i(class="fa fa-sign-in")
+    
+  div.hero
+    h1 we connect your hardware to the internet.
+    div.get-started
+      a(href="#" class="btn btn-white") get started
       
   footer
     script(src='/js/app.js')

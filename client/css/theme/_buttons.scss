@@ -57,6 +57,14 @@ $btn-colors: (
       color: $var-white;
     }
   }
+  &.btn-purple {
+    color: $var-white;
+    &:hover {
+      background: $alt-purple;
+      color: $var-white;
+    }
+  }
+
   &.btn-light-blue {
     &:hover {
       background:$off-white;

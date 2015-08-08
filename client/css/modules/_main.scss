@@ -32,6 +32,7 @@ a { color:$var-white; }
   -o-background-size: cover;
   background-size: cover;
   height:400px;
+  padding: 0 1em;
   .get-started {
     display: block;
     margin: 30px auto;
@@ -71,6 +72,39 @@ a { color:$var-white; }
     display:block;
   }
 }
+
+.info-bit {
+  text-align: center;
+  background:$light-grey;
+  padding:2em 0;
+  float:left;
+  width:100%;
+  .logos {
+    width:70%;
+    margin:0 auto;
+  }
+  h1 {
+    font-family:$lato;
+    font-weight:500;
+    letter-spacing:2px;
+    font-size: 40px;
+    color:$var-grey;
+  }
+  h2 {
+    font-family:$lato;
+    font-weight:500;
+    letter-spacing:2px;
+    font-size: 25px;
+    color:$var-grey;
+  }
+}
+
+
+
+
+
+
+
 
 quote {
   margin:15px 0;

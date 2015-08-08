@@ -33,11 +33,36 @@
     }
   }
 
-  .login-form, .register, .or {
-    width:100%;
-    display:block;
-    clear:both;
+  body.login {
+    background-image:none;
   }
+
+  .login-form, .register {
+    width: 90%;
+    display: block;
+    clear: both;
+    float: none;
+  }
+  .login-wrapper {
+    margin:90px auto;
+  }
+
+  .register {
+    margin-top:2em;
+  }
+
+  .login-wrapper, .outer-wrapper {
+    width: 100%;
+    padding: 1em;
+  }
+
+  .login-form .login-inner, .register .register-inner {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .or {display:none; }
 
 }
 

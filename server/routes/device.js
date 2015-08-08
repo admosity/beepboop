@@ -86,7 +86,7 @@ router.post('/', function(req, res){
     });
     device.save(function(err){
       if(!err){
-        res.ok(true);
+        res.ok(device);
       }else{
         res.error(401, "Failed to create device");
       }

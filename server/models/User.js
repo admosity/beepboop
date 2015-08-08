@@ -53,13 +53,3 @@ UserSchema.methods.validPassword = function(password, callback) {
     }
   });
 };
-
-
-
-
-module.exports = {
-
-  createUser: function(username, password, callback) {
-
-  }
-}

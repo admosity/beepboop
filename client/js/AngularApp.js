@@ -1,11 +1,10 @@
-// external angular packages
-require('angular-ui-router');
-require('angular-material');
+
 
 require('./controllers');
 require('./directives');
 require('./services');
 require('./states.js');
+require('./models');
 
 
 var app = angular.module('App', [
@@ -13,6 +12,7 @@ var app = angular.module('App', [
   'App.controllers',
   'App.directives',
   'App.services',
+  'App.models',
 ]);
 
 app.config(function($urlRouterProvider, $locationProvider, $urlMatcherFactoryProvider) {
@@ -42,6 +42,13 @@ app.config(function($urlRouterProvider, $locationProvider, $urlMatcherFactoryPro
   // Expose ui router $state
   ////////////////////////
   $rootScope.$state = $state;
+
+
+  $rootScope.$on('$stateChangeSuccess', 
+  function(event, toState, toParams, fromState, fromParams){ 
+    $('body').removeClass(fromState.name);
+    $('body').addClass(toState.name);
+  });
 });
 
 module.exports = app;

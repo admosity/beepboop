@@ -83,6 +83,8 @@ app.use(session({
 		mongooseConnection: mongoose.connection
 	})
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Load models
 require('./models');

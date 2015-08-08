@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var DeviceSchema = new Schema({
+  name:        {type: String, required: true},
   owner:       {type: Schema.Types.ObjectId, ref: 'User'},
   dateCreated: {type: Date, default: Date.now},
 

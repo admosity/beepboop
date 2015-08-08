@@ -1,7 +1,3 @@
-/// <reference path="typings/gulp/gulp.d.ts" />
-/// <reference path="typings/node/node.d.ts" />
-
-
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var plumber = require('gulp-plumber');

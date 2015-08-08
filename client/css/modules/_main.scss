@@ -53,24 +53,47 @@ a { color:$var-white; }
 }
 
 .featured-widgets {
+  background:$var-purple;
   text-align:center;
   width:100%;
   margin:20px auto;
   display: block;
   float:left;
-  padding:0 5%;
+  padding:2em 5%;
   h1 {
     font-family:$lato;
     font-weight:500;
     letter-spacing:2px;
     font-size: 30px;
-    color:$alt-purple;
+    color:$var-white;
     margin-bottom:1em;
   }
   .widget {
     background-size:cover;
     height:300px;
     display:block;
+  }
+}
+
+.bottom-info-bit {
+  text-align: center;
+  background:$var-white;
+  padding:2em 0;
+  float:left;
+  width:100%;
+  h1 {
+    font-family:$lato;
+    font-weight:500;
+    letter-spacing:2px;
+    font-size: 30px;
+    color:$light-purple;
+    margin-bottom:5px;
+  }
+  p {
+    font-family:$lato;
+    font-weight:500;
+    font-size: 16px;
+    color:$var-grey;
   }
 }
 

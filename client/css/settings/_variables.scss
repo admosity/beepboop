@@ -1,0 +1,33 @@
+// ==========================================================================
+// Variable Config
+// ==========================================================================
+
+
+// grid
+$grid-columns: 12;
+$grid-max-width: 75em;
+
+// fonts - needs to be done better
+
+$open-sans: 'Open Sans', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$lato: 'Lato', sans-serif;
+$dorsa: 'Dorsa', sans-serif;
+$gotham: 'gotham', sans-serif;
+$source: 'Source Code Pro';
+$share-tech: 'Share Tech Mono', sans-serif;
+$bank-medium: 'bank_gothicmedium', sans-serif;
+
+// font sizes - needs to be done better
+$base-font-size: 14px !default;
+$larger-font-size: 24px !default;
+$large-font-size: 20px !default;
+$huge-font-size: 58px !default;
+$small-font-size: 14px !default;
+$tiny-font-size: 10px !default;
+
+
+// breakpoints
+$bp-small: "only screen and (min-width: 20em)";
+$bp-medium: "only screen and (min-width: 30em)";
+$bp-large: "only screen and (min-width: 60em)";

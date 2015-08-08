@@ -1,0 +1,173 @@
+// ==========================================================================
+// Mixins
+// Author: Mike Fortuna
+// Description: Various Reusable Mixins. Documentation/usage found above each.
+// ==========================================================================
+
+
+// CLEARFIX
+// usage: @extend %clearfix;
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// CENTER
+// usage: @extend %center;
+
+%center {
+  text-align:center;
+}
+
+// LIST RESET
+
+%list-reset {
+  list-style-type:none;
+  li {
+    display:inline;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+// RESET
+
+%reset {
+  margin:0;
+  padding:0;
+}
+
+// MEDIA QUERY
+// usage: @media #{$bp-medium} { }
+// ---or---
+// .class {
+//   @include bp-small {
+//      bar: foo;
+//    }
+// }
+
+@mixin bp-large {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+
+// BORDER BOX
+// usage: @include border-box;
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// TRANSITIONS
+// usage: @include transition-all(1.2s);
+
+@mixin transition-all($secs) {
+  -webkit-transition: all $secs ease;
+  -moz-transition: all $secs ease;
+  transition: all $secs ease;
+}
+
+@mixin transition-linear($secs) {
+  -webkit-transition: linear $secs ease;
+  -moz-transition: linear $secs ease;
+  -o-transition: linear $secs ease;
+  -ms-transition: linear $secs ease;
+  transition: linear $secs ease;
+}
+
+@mixin transition-opacity($secs) {
+  -webkit-transition: opacity $secs ease-in-out;
+  -moz-transition: opacity $secs ease-in-out;
+  -o-transition: opacity $secs ease-in-out;
+  -ms-transition: opacity $secs ease-in-out;
+  transition: opacity $secs ease-in-out;
+}
+
+@mixin transition-visibility($secs) {
+  -webkit-transition: visibility $secs linear;
+  -moz-transition: visibility $secs linear;
+  -o-transition: visibility $secs linear;
+  -ms-transition: visibility $secs linear;
+  transition: visibility $secs linear;
+}
+
+
+// FONT FACE
+// usage
+//   @include font-face('gotham', '/fonts/gotham');
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+         url($file-name + '.woff') format('woff'),
+         url($file-name + '.ttf')  format('truetype'),
+         url($file-name + '.svg##{$font-name}')  format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+
+
+// GRADIENT BG
+// usage
+//   .foo {
+//     @include background-gradient(red, black, 'vertical');
+//   }
+
+@mixin background-gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+
+// PLACHOLDER MIXIN
+// usage:
+// .foo {
+//   @include placeholder {
+//     color: green;
+//   }
+// }
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}

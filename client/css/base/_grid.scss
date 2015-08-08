@@ -1,0 +1,54 @@
+// ==========================================================================
+// Grid Config / Resets
+// Author: Mike Fortuna
+// Description: Reuseable Grid + Browser Reset
+// ==========================================================================
+
+
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  @include border-box;
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.wrapper, .row {
+  @extend %clearfix;
+  &.center {
+    @extend %center;
+  }
+  @include bp-small {
+    padding:0 1em;
+  }
+}
+
+[class*='column-'] {
+  float: left;
+  padding: 1em;
+  width: 100%;
+  min-height: 1px;
+  &.center {
+    @extend %center;
+  }
+}
+
+@media #{$bp-medium} {
+  .wrapper {
+    width: 95%;
+    max-width: $grid-max-width;
+  }
+  @for $i from 1 through $grid-columns {
+    .column-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}

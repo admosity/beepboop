@@ -232,17 +232,81 @@ a { color:$var-white; }
 
 // login page
 
-.login {
-  display: block;
+.login-form {
+  display: inline-block;
   float: left;
-  clear: both;
-  width:100%;
+  width:45%;
   text-align: center;
-  margin: 100px auto 0;
+  margin: 0 auto;
   .login-inner {
-    background-color: rgba(255, 255, 255, 0.84);
+    width: 392px;
+    margin: 0 auto;
+    padding: 1em;
+  }
+  h1 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-bottom:1em;
+  }
+  form {
+    margin:0 auto;
+  }
+  input[type="submit"] {
+    border:none;
+    width:100%;
+    margin-top: 1em;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    display:block;
+    outline:none;
+    margin:0 auto;
+    width:100%;
+    padding:1em 10px;
+    border:1px solid $light-grey;
+    &:focus {
+      border:1px solid $var-purple;
+    }
+  }
+}
+
+.login-wrapper {
+  background-color: rgba(255, 255, 255, 0.84);
+  border-radius:2px;
+  border:1px solid $var-purple;
+  margin: 130px auto;
+  width: 880px;
+  float: left;
+}
+.outer-wrapper {
+  margin:0 auto;
+  display: block;
+  text-align: center;
+  width: 850px;
+}
+
+.or {
+  display: inline-block;
+  float: left;
+  width:10%;
+  margin: 110px auto 0;
+  text-align: center;
+  h1 {
+    color:$var-purple;
+  }
+}
+
+// register form
+
+.register {
+  display: inline-block;
+  float: left;
+  width:45%;
+  text-align: center;
+  margin: 0 auto;
+  .register-inner {
+    /* background-color: rgba(255, 255, 255, 0.84);
     border-radius:2px;
-    border:1px solid $var-purple;
+    border:1px solid $var-purple; */
     width: 392px;
     margin: 0 auto;
     padding: 1em;

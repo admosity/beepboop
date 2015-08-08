@@ -33,6 +33,12 @@
     }
   }
 
+  .login-form, .register, .or {
+    width:100%;
+    display:block;
+    clear:both;
+  }
+
 }
 
 @media #{$mobile-portrait} {

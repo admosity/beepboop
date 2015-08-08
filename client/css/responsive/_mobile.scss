@@ -17,6 +17,22 @@
     display:none;
   }
 
+  .info-bit .logos {
+    width: auto;
+  }
+
+  .header {
+    text-align: center;
+    .center {
+      display:none;
+    }
+  }
+  .hero {
+    h1 {
+      margin:20px auto 0;
+    }
+  }
+
 }
 
 @media #{$mobile-portrait} {

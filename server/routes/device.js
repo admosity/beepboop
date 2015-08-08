@@ -15,7 +15,7 @@ router.post('/:id', function(req, res){
   var id = req.params.id;
   var post = req.body;
   if(user && id && post.device){
-    // Device.find({}, function(){});
+    Device.findById(id, function(){});
     // var newPhoto = new Photo({
     //   url: post.url,
     //   owner: user,

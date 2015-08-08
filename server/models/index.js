@@ -3,3 +3,4 @@
  */
 
  require("./Device");
+ require('./User');

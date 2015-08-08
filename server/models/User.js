@@ -55,5 +55,5 @@ UserSchema.methods.validPassword = function(password, callback) {
 };
 
 UserSchema.methods.getDevices = function(cb) {
-  return this.model('Device').find({owner: this}, cb);
+  return this.model('Device').find({owner: this._id}, cb);
 };

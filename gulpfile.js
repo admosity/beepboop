@@ -143,6 +143,7 @@ gulp.task('client-html', function() {
  *
  */
 var sassErrorHandler = function(err) {
+  console.log(err);
   console.log('[sass] ', err.messageFormatted);
   this.emit('end');
 };
@@ -166,7 +167,7 @@ gulp.task('client-css', function() {
       errorHandler: sassErrorHandler
     }))
     .pipe(sass())
-    .pipe(minifyCss())
+    // .pipe(minifyCss())
     .pipe(gulp.dest('dist/public'))
 });
 

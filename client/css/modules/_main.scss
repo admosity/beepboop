@@ -68,7 +68,7 @@ a { color:$var-white; }
     font-family:$lato;
     font-weight:500;
     letter-spacing:2px;
-    font-size: 30px;
+    font-size: 50px;
     color:$var-white;
     margin-bottom:1em;
   }
@@ -78,6 +78,8 @@ a { color:$var-white; }
     display:block;
     position:relative;
     padding:0;
+    width: 31.23333%;
+    margin:10px;
     .widget-inner {
       @include transition-all(0.5s);
       opacity:0;
@@ -92,6 +94,7 @@ a { color:$var-white; }
       }
       h1 {
         margin-bottom:0;
+        font-size: 35px;
       }
     }
     &:hover {
@@ -100,6 +103,39 @@ a { color:$var-white; }
       }
     }
   }
+}
+
+.marketplace {
+  padding-top:3em;
+  .featured-widgets {
+    background:none;
+    h1 {
+      color:$var-purple;
+    }
+    .widget {
+      h1 {
+        color:$var-white;
+      }
+    }
+  }
+  .filters {
+    display: inline-block;
+    select {
+      background: $var-white;
+      outline:none;
+      display: inline-block;
+      font-size:20px;
+      position:relative;
+      top:-5px;
+    }
+  }
+}
+
+.poweredby {
+  text-align:center;
+  padding:1em 0;
+  width:100%;
+  float:left;
 }
 
 .bottom-info-bit {
@@ -151,7 +187,48 @@ a { color:$var-white; }
 }
 
 
+// create device
 
+.device-form {
+  display: block;
+  float: left;
+  clear: both;
+  width:100%;
+  text-align: center;
+  margin: 100px auto 0;
+  .device-inner {
+    background-color: rgba(255, 255, 255, 0.84);
+    border-radius:2px;
+    border:1px solid $var-purple;
+    width: 392px;
+    margin: 0 auto;
+    padding: 1em;
+  }
+  h1 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-bottom:1em;
+  }
+  form {
+    margin:0 auto;
+  }
+  input[type="submit"] {
+    border:none;
+    width:100%;
+    margin-top: 1em;
+  }
+  textarea, input[type="text"], input[type="email"], input[type="password"] {
+    display:block;
+    outline:none;
+    margin:0 auto;
+    width:100%;
+    padding:1em 10px;
+    border:1px solid $light-grey;
+    &:focus {
+      border:1px solid $var-purple;
+    }
+  }
+}
 
 // login page
 
@@ -210,7 +287,20 @@ a { color:$var-white; }
   h2 {
     color:$alt-purple;
     font-family:$lato;
-    margin-bottom:1em;
+    font-size: 18px;
+    display:inline-block;
+    a.add {
+      font-size:14px;
+      @include transition-all(0.5s);
+      display:inline-block;
+      position: relative;
+      top: -2px;
+      left: 10px;
+      color:$alt-purple;
+      &:hover {
+        color:$var-white;
+      }
+    }
   }
   img.logo {
     margin-left: 10px;
@@ -222,6 +312,9 @@ a { color:$var-white; }
     margin-top:2em;
     ul li a {
       font-size:15px;
+      &:hover {
+        color:$lighter-purple;
+      }
     }
   }
 }

@@ -134,10 +134,30 @@ a { color:$var-white; }
   position:fixed;
   left:0;
   height:100%;
-  width:250px;
+  width:180px;
+  padding:1em;
+  font-family:$lato;
+  @extend %list-reset;
+  h2 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-bottom:1em;
+  }
+  img.logo {
+    margin-left: 10px;
+  }
+  li.separate {
+    margin-top:2em;
+  }
+  ul {
+    margin-top:2em;
+    ul li a {
+      font-size:15px;
+    }
+  }
 }
 .dashboard-content {
-  margin-left:270px;
+  margin-left:200px;
 }
 
 

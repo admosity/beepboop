@@ -9,14 +9,14 @@ var User = new Schema({
   password: { type: String, required: true }
 }, {collection: 'User'});
 
-User.methods.validPassword(function(password, callback) {
-  bcrypt.compare(password, this.password, function(err, res) {
-    if(res) {
-      callback(null, this);
-    } else {
-      callback(true, this);
-    }
-  });
-})
+// User.methods.validPassword(function(password, callback) {
+//   bcrypt.compare(password, this.password, function(err, res) {
+//     if(res) {
+//       callback(null, this);
+//     } else {
+//       callback(true, this);
+//     }
+//   });
+// })
 
 mongoose.model('User', User);

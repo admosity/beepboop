@@ -5,6 +5,7 @@ var DeviceSchema = new Schema({
   owner:       {type: Schema.Types.ObjectId, ref: 'User'},
   dateCreated: {type: Date, default: Date.now},
   data:        {},
+  callbackUrl: {type: String},
   filters: [{
     _id: false,
     variableA: {type: String},

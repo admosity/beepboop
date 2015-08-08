@@ -4,7 +4,7 @@
 
 body {
   background:$var-white;
-  &.login-page {
+  &.login {
     background:url('../assets/images/login-bg.jpg');
     background-size:cover;
   }
@@ -144,6 +144,12 @@ a { color:$var-white; }
   padding:2em 0;
   float:left;
   width:100%;
+  [class*='column-'] {
+    border-right: 1px solid #F0E3F9;
+    &:last-child {
+      border:none;
+    }
+  }
   h1 {
     font-family:$lato;
     font-weight:500;

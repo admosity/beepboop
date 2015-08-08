@@ -15,7 +15,9 @@ router.post('/:id', function(req, res){
   var id = req.params.id;
   var post = req.body;
   if(user && id && post.device){
-    Device.findById(id, function(){});
+    Device.findById(id, function(err, device){
+      console.log("beep", device);
+    });
     // var newPhoto = new Photo({
     //   url: post.url,
     //   owner: user,
@@ -37,22 +39,21 @@ router.post('/', function(req, res){
   var user = req.user;
   var post = req.body;
   if(user && post.device){
+    var writeKey = "asdf";
+    var readKey = "asdf";
+
     var device = new Device({
       owner: user,
-      
+      writeKey: writeKey,
+      readKey: readKey,
     });
-    // var newPhoto = new Photo({
-    //   url: post.url,
-    //   owner: user,
-    //   voteCount: 0
-    // });
-    // newPhoto.save(function(err){
-    //   if(!err){
-    //     res.ok(true);
-    //   }else{
-    //     res.error(401, "Failed to post photo");
-    //   }
-    // });
+    device.save(function(err){
+      if(!err){
+        res.ok(true);
+      }else{
+        res.error(401, "Failed to post photo");
+      }
+    });
   }else{
     res.error("404", "Page not found");
   }

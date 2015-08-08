@@ -72,6 +72,29 @@ a { color:$var-white; }
     background-size:cover;
     height:300px;
     display:block;
+    position:relative;
+    padding:0;
+    .widget-inner {
+      @include transition-all(0.5s);
+      opacity:0;
+      background:$op-purple;
+      height:100%;
+      width:100%;
+      position:absolute;
+      padding:3em 1em;
+      p {
+        color:$var-white;
+        margin:10px auto;
+      }
+      h1 {
+        margin-bottom:0;
+      }
+    }
+    &:hover {
+      .widget-inner {
+        opacity:1;
+      }
+    }
   }
 }
 

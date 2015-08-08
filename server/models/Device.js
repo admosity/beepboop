@@ -6,6 +6,7 @@ var DeviceSchema = new Schema({
   dateCreated: {type: Date, default: Date.now},
 
   payload:     Schema.Types.Mixed,
+  writeKey:    {type: String, unique: true},
   readKey:     {type: String, unique: true},
   callbackUrl: {type: String},
 

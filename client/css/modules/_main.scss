@@ -127,6 +127,19 @@ a { color:$var-white; }
   }
 }
 
+//dashboard
+
+.sidebar {
+  background:$var-purple;
+  position:fixed;
+  left:0;
+  height:100%;
+  width:250px;
+}
+.dashboard-content {
+  margin-left:270px;
+}
+
 
 
 quote {

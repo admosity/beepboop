@@ -106,7 +106,18 @@ a { color:$var-white; }
 }
 
 .marketplace {
-  padding-top:5em;
+  padding-top:3em;
+  .featured-widgets {
+    background:none;
+    h1 {
+      color:$var-purple;
+    }
+    .widget {
+      h1 {
+        color:$var-white;
+      }
+    }
+  }
   .filters {
     display: inline-block;
     select {
@@ -176,7 +187,48 @@ a { color:$var-white; }
 }
 
 
+// create device
 
+.device-form {
+  display: block;
+  float: left;
+  clear: both;
+  width:100%;
+  text-align: center;
+  margin: 100px auto 0;
+  .device-inner {
+    background-color: rgba(255, 255, 255, 0.84);
+    border-radius:2px;
+    border:1px solid $var-purple;
+    width: 392px;
+    margin: 0 auto;
+    padding: 1em;
+  }
+  h1 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-bottom:1em;
+  }
+  form {
+    margin:0 auto;
+  }
+  input[type="submit"] {
+    border:none;
+    width:100%;
+    margin-top: 1em;
+  }
+  textarea, input[type="text"], input[type="email"], input[type="password"] {
+    display:block;
+    outline:none;
+    margin:0 auto;
+    width:100%;
+    padding:1em 10px;
+    border:1px solid $light-grey;
+    &:focus {
+      border:1px solid $var-purple;
+    }
+  }
+}
 
 // login page
 

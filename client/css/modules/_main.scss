@@ -1,0 +1,123 @@
+// ==========================================================================
+// Main
+// ==========================================================================
+
+body {
+  background:$light-grey;
+}
+h1, h3 {
+  font-family: $open-sans;
+}
+
+p {
+  font-family: $lato;
+}
+
+a { color:$var-white; }
+
+.perfect-full-size-bg {
+  background:url('../images/bg.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+quote {
+  margin:15px 0;
+  width:100%;
+  background:$light-purple;
+  display:block;
+  padding:1em;
+  font-family:$source;
+  color:$var-black;
+}
+
+.content [class*='column-'] {
+  background:$light-purple;
+  text-align: center;
+  border: 1px solid $var-white;
+  color:$var-grey;
+  padding:30px 0;
+  .wrapper {
+    margin: 0 auto;
+  }
+  a {
+    color:$var-grey;
+  }
+}
+
+.col [class*='column-'] input {
+  @include placeholder {
+    color: $var-grey;
+  }
+}
+
+.syntaxhighlighter {
+  z-index:-1;
+}
+
+.huger {
+  font-size:$fsz-huge;
+}
+
+
+.testing { padding:10em 0; clear:both;}
+
+.main {
+  background:$off-white;
+  /* background:url('http://giant.gfycat.com/TimelySlowHornedviper.gif'); */
+  /* background: url('http://giant.gfycat.com/ReadyEntireBarasingha.gif'); */
+  background-size:cover;
+  width:100%;
+  margin-top: 75px;
+  color:$var-black;
+  .wrapper {
+    margin: 1.5em auto 0;
+    padding: 12em 10%;
+    p {
+      margin:0 auto 2em;
+    }
+  }
+  .column-5 {
+    clear: both;
+    display: block;
+    float: left;
+    margin: 40px 0 0;
+  }
+  [class*='column-'] {
+    @extend %reset;
+  }
+  @include mobile {
+    padding:0 1em;
+  }
+}
+
+.content {
+  z-index:-1;
+  margin-top:130px;
+  section {
+    padding-top: 50px;
+    float: left;
+    clear: both;
+    padding-left:10%;
+    padding-right:10%;
+    h3 {
+      margin-top:1.5em;
+    }
+
+    &:first-child {
+      padding-top:0;
+    }
+    @include mobile {
+      width: 100%;
+    }
+    p { margin-top:30px;
+      span {
+        background:$light-purple;
+        color:$var-red;
+        padding:1px 5px;
+      }
+    }
+  }
+}

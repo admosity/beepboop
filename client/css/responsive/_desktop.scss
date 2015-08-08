@@ -1,0 +1,29 @@
+// ==========================================================================
+// Respnsive/Desktop
+// Author: Mike Fortuna
+// ==========================================================================
+
+@media #{$desktop} {
+
+  .hide-mobile {
+    display:block;
+  }
+
+  .hide-mobile-inline {
+    display:inline-block;
+  }
+
+  .hide-tablet {
+    display:block;
+  }
+
+  .hide-tablet-inline {
+    display:inline-block;
+  }
+
+}
+
+@media #{$desktop-sm} {
+
+
+}

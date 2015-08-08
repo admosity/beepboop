@@ -1,0 +1,84 @@
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+
+// Button colors
+
+$btn-colors: (
+  btn-black: $var-black,
+  btn-blue: $var-blue,
+  btn-white: $var-white,
+  btn-grey: $var-grey,
+  btn-pink: $var-pink,
+  btn-red: $var-red,
+  btn-yellow: $var-yellow,
+  btn-purple: $var-purple,
+  btn-orange: $var-orange,
+  btn-light-blue: $light-blue
+);
+
+@each $btn-color, $color in $btn-colors {
+  .btn.#{$btn-color} {
+    background-color:#{$color};
+  }
+}
+
+// Buttons
+
+.btn {
+  padding:15px 20px;
+  color:$var-black;
+  font-family:$open-sans;
+  text-decoration: none;
+  border-radius:0px;
+  border:2px solid transprent;
+  text-align: center;
+  cursor:pointer;
+  @include transition-all(0.5s);
+  &:hover {
+    cursor:pointer;
+  }
+  &.huge {
+    font-size:$fsz-button;
+  }
+  &.mobile {
+    display:none;
+  }
+  &.block {
+    display: block;
+    clear:both;
+    width:100%;
+  }
+  &.btn-white {
+    color: $var-black;
+    &:hover {
+      background: $var-black;
+      color: $var-white;
+    }
+  }
+  &.btn-light-blue {
+    &:hover {
+      background:$off-white;
+    }
+  }
+  &.btn-black {
+    color: $var-white;
+    &:hover {
+      background: $var-white;
+      color: $var-black;
+    }
+  }
+  &.btn-orange {
+    &:hover {
+      background: $var-white;
+      color: $var-black;
+    }
+  }
+  &.btn-yellow {
+    &:hover {
+      background: $var-white;
+      color: $var-black;
+    }
+  }
+}

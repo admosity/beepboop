@@ -1,0 +1,92 @@
+// ==========================================================================
+// Media Query Mixins
+// Author: Mike Fortuna
+// Description: Various Reusable Mixins. Documentation/usage found above each.
+// ==========================================================================
+
+
+// breakpoint variables
+
+$mobile: "only screen and (max-device-width : 737px)";
+$mobile-landscape: "only screen and (min-device-width : 320px) and (max-device-width : 737px) and (orientation : landscape)";
+$mobile-portrait: "only screen and (min-device-width : 320px) and (max-device-width : 737px) and (orientation : portrait) ";
+
+$tablet: "only screen and (min-width: 768px) and (max-width: 1027px)";
+$tablet-landscape: "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)";
+$tablet-portrait: "only screen and (min-width: 30em) and (orientation : portrait)";
+
+$desktop-sm: "only screen and (min-width: 800px) and (max-width: 1028px)";
+$desktop: "only screen and (min-width: 1029px)";
+
+$ie9-only: "only screen and (min-width:0\0)";
+$ie10-up: "all and (-ms-high-contrast: none), (-ms-high-contrast: active)";
+
+
+// MEDIA QUERY
+// usage: @media #{$bp-medium} { }
+// ---or---
+// .class {
+//   @include bp-small {
+//      bar: foo;
+//    }
+// }
+
+@mixin desktop {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin desktop-sm {
+  @media only screen and (max-width: 70em) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape {
+  @media only screen and (max-width: 70em) {
+    @content;
+  }
+}
+
+@mixin mobile-portrait {
+  @media only screen and (max-width: 70em) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media only screen and (max-width: 70em) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media only screen and (max-width: 70em) {
+    @content;
+  }
+}
+
+@mixin ie9-only {
+  @media only screen and (max-width: 70em) {
+    @content;
+  }
+}
+
+@mixin ie10-up {
+  @media only screen and (max-width: 70em) {
+    @content;
+  }
+}

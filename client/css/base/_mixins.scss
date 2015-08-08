@@ -9,7 +9,7 @@
 // usage: @extend %clearfix;
 
 %clearfix {
-  *zoom: 1;
+  /* *zoom: 1; */
   &:before, &:after {
     content: " ";
     display: table;
@@ -26,12 +26,23 @@
   text-align:center;
 }
 
+// LIST INLINE
+
+%list-inline {
+  list-style-type:none;
+  li {
+    display:inline;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
 // LIST RESET
 
 %list-reset {
   list-style-type:none;
   li {
-    display:inline;
     a {
       text-decoration: none;
     }
@@ -43,33 +54,6 @@
 %reset {
   margin:0;
   padding:0;
-}
-
-// MEDIA QUERY
-// usage: @media #{$bp-medium} { }
-// ---or---
-// .class {
-//   @include bp-small {
-//      bar: foo;
-//    }
-// }
-
-@mixin bp-large {
-  @media only screen and (max-width: 60em) {
-    @content;
-  }
-}
-
-@mixin bp-medium {
-  @media only screen and (max-width: 40em) {
-    @content;
-  }
-}
-
-@mixin bp-small {
-  @media only screen and (max-width: 30em) {
-    @content;
-  }
 }
 
 
@@ -115,6 +99,18 @@
   transition: visibility $secs linear;
 }
 
+// Firefox mixin
+// usage:
+// @include firefox {
+//  bar: foo;
+// }
+
+@mixin firefox {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}
+
 
 // FONT FACE
 // usage
@@ -153,6 +149,41 @@
   } @else {
     background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
     background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+// usage:
+// @include linear-gradient(#FFA801, #FFD952);
+
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+// FULL SIZE BG GRADIENT MIXIN
+// @include linear-gradient(#FFA801, #FFD952);
+
+@mixin full-gradient($fromColorFull, $toColorFull) {
+  background: $toColorFull; /* Old browsers */
+  background: -moz-linear-gradient(top, $fromColorFull 0%, $toColorFull 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$fromColorFull), color-stop(100%,$toColorFull)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $fromColorFull 0%,$toColorFull 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $fromColorFull 0%,$toColorFull 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $fromColorFull 0%,$toColorFull 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $fromColorFull 0%,$toColorFull 100%); /* W3C */
+}
+
+
+@mixin setRowStyle($color1, $color2) {
+  background:$color1;
+  &:nth-child(even) {
+    background:$color2;
   }
 }
 

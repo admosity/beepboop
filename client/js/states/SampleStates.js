@@ -34,5 +34,20 @@ module.exports = [
         },
       }
     }
+  },
+  {
+    name: 'login',
+    state: {
+      url: '/login',
+      views: {
+        header: {
+          templateUrl: partialsPrefix + 'header.html',
+        },
+        content: {
+          templateUrl: viewsPrefix + 'login.html',
+          // controller: 'SplashCtrl',
+        },
+      }
+    }
   }
 ]

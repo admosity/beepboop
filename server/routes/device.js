@@ -39,9 +39,13 @@ router.post('/', function(req, res){
   var user = req.user;
   var post = req.body;
   if(user && post.device){
+    var writeKey = "asdf";
+    var readKey = "asdf";
+
     var device = new Device({
       owner: user,
-      
+      writeKey: writeKey,
+      readKey: readKey,
     });
     device.save(function(err){
       if(!err){

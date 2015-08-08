@@ -4,6 +4,10 @@
 
 body {
   background:$var-white;
+  &.login-page {
+    background:url('../assets/images/login-bg.jpg');
+    background-size:cover;
+  }
 }
 h1, h3 {
   font-family: $open-sans;
@@ -72,6 +76,29 @@ a { color:$var-white; }
     background-size:cover;
     height:300px;
     display:block;
+    position:relative;
+    padding:0;
+    .widget-inner {
+      @include transition-all(0.5s);
+      opacity:0;
+      background:$op-purple;
+      height:100%;
+      width:100%;
+      position:absolute;
+      padding:3em 1em;
+      p {
+        color:$var-white;
+        margin:10px auto;
+      }
+      h1 {
+        margin-bottom:0;
+      }
+    }
+    &:hover {
+      .widget-inner {
+        opacity:1;
+      }
+    }
   }
 }
 
@@ -135,24 +162,37 @@ a { color:$var-white; }
   width:100%;
   text-align: center;
   margin: 100px auto 0;
+  .login-inner {
+    background-color: rgba(255, 255, 255, 0.84);
+    border-radius:2px;
+    border:1px solid $var-purple;
+    width: 392px;
+    margin: 0 auto;
+    padding: 1em;
+  }
   h1 {
     color:$alt-purple;
     font-family:$lato;
     margin-bottom:1em;
   }
   form {
-    width:350px;
     margin:0 auto;
   }
   input[type="submit"] {
     border:none;
     width:100%;
+    margin-top: 1em;
   }
-  input[type="text"] {
+  input[type="text"], input[type="email"], input[type="password"] {
     display:block;
+    outline:none;
     margin:0 auto;
     width:100%;
     padding:1em 10px;
+    border:1px solid $light-grey;
+    &:focus {
+      border:1px solid $var-purple;
+    }
   }
 }
 

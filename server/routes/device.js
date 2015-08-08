@@ -1,4 +1,5 @@
-var router = require('express').Router()
+var Router = require('express').Router
+  , router = Router()
   , mongoose = require('mongoose')
   , User = mongoose.model('User')
   , moment = require('moment')
@@ -7,37 +8,61 @@ var router = require('express').Router()
 require('../models/Device');
 var Device = mongoose.model('Device');
 
+////////////////////////
+// User facing device endpoints 
+////////////////////////
+
+router.use('/:id', function(req, res, next) {
+  Device.findById(req.params.id, function(err, device) {
+    if(!device) {
+      return res.error(404);
+    } else if(err) {
+      return res.error(500);
+    }
+    req.device = device;
+    return next();
+  });
+});
+
+// Retrieve devices 
 router.get('/', function(req, res){
-  res.ok(true);
+  return req.user.getDevices(function(err, devices) {
+    return res.ok(devices);
+  });
 });
 
-router.get('/:id', function(req, res){
-  var id = req.params.id;
-  if(id){
-    Device.findOne({readKey: id}, function(err, device){
-      if(!err && device){
-        console.log("beep", device);
-        res.ok(device.data);
-      }else{
-        res.error("404", "Not found");
+// binded to /:id
+var deviceIdRouter = Router();
+
+deviceIdRouter
+  .route('/')
+  .get(function(req, res) {
+    var id = req.params.id;
+    return Device.findOne({_id: id, owner: req.user }, function(err, device) {
+      if(!device) {
+        return res.error(404);
+      } else {
+        return res.ok(device);
       }
-    });
-  }
-});
-
-router.post('/:id', function(req, res){
-  var user = req.user;
-  var id = req.params.id;
-  var post = req.body;
-  if(user && id && post.device){
-    Device.findById(id, function(err, device){
-      console.log("beep", device);
-      //save and shit here
-    });
-  }else{
-    res.error("404", "Page not found");
-  }
-});
+    })
+  })
+  .post(function(req, res) {
+    var user = req.user;
+    var id = req.params.id;
+    var post = req.body;
+    if(user && id && post.device){
+      // update the device 
+      Device.findOne({_id: id, owner: req.user }, function(err, device){
+        device.updateDevice(post);
+        device.save(function(err) {
+          if(err) return res.error('500', "Something terrible happpened.")
+          return res.ok(device);
+        })
+      });
+    }else{
+      res.error("404", "Page not found");
+    }
+  });
 
 router.post('/', function(req, res){
   var user = req.user;
@@ -47,14 +72,15 @@ router.post('/', function(req, res){
     var readKey = shortid.generate();
 
     var device = new Device({
-      // owner: user,
-      name: "asdf",
+      owner: user,
+      name: post.name,
       writeKey: writeKey,
       readKey: readKey,
+      base: true,
     });
     device.save(function(err){
       if(!err){
-        res.ok(true);
+        res.ok(device);
       }else{
         res.error(401, "Failed to create device");
       }
@@ -63,5 +89,39 @@ router.post('/', function(req, res){
     res.error("404", "Page not found");
   }
 });
+
+////////////////////////
+// device facing endpoints
+////////////////////////
+
+router.get('/:id/payload', function(req, res) {
+  var query = req.query;
+  var device = req.device;
+  var sendBack = {};
+  var needSave = false;
+  if(query.write && query.write == req.device.writeKey && query.payload) {
+    device.payload = query.payload;
+    needSave = true;
+  }
+
+  if(query.read && query.read == device.readKey) {
+    var rtn = {
+      payload: device.payload,
+      action: device.action,
+    };
+    if(needSave) {
+      return device.save(function(err) {
+        return res.ok(action);
+      });
+    } else {
+      return res.ok(action);
+    }
+  }
+
+  return res.error(400);
+
+});
+
+router.use('/:id', deviceIdRouter);
 
 module.exports = router;

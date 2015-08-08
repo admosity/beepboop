@@ -1,7 +1,3 @@
-/// <reference path="typings/gulp/gulp.d.ts" />
-/// <reference path="typings/node/node.d.ts" />
-
-
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var plumber = require('gulp-plumber');
@@ -143,6 +139,7 @@ gulp.task('client-html', function() {
  *
  */
 var sassErrorHandler = function(err) {
+  console.log(err);
   console.log('[sass] ', err.messageFormatted);
   this.emit('end');
 };
@@ -166,7 +163,7 @@ gulp.task('client-css', function() {
       errorHandler: sassErrorHandler
     }))
     .pipe(sass())
-    .pipe(minifyCss())
+    // .pipe(minifyCss())
     .pipe(gulp.dest('dist/public'))
 });
 

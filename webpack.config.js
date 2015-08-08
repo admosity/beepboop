@@ -42,6 +42,11 @@ module.exports = {
       {
         test: /[\/]angular\.js$/,
         loader: "exports?window.angular"
+      },
+
+      {
+        test: /[\/]jQuery\.js$/,
+        loader: "exports?window.$"
       }
 
     ]
@@ -71,8 +76,8 @@ module.exports = {
     ]),
     // Export globals into all files
     new webpack.ProvidePlugin({
-      '$': 'jquery',
-      jQuery: "jquery",
+      // '$': 'jquery',
+      // jQuery: "jquery",
       // angular: 'angular',
     }),
     // Keep the angular dependency format DRY

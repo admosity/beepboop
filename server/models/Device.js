@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var DeviceSchema = new Schema({
-  owner:                {type: Schema.Types.ObjectId, ref: 'User'},
-  dateCreated:          {type: Date, default: Date.now},
-  data: {},
+  owner:       {type: Schema.Types.ObjectId, ref: 'User'},
+  dateCreated: {type: Date, default: Date.now},
+  data:        {},
   filters: [{
     _id: false,
     variableA: {type: String},
@@ -16,8 +16,6 @@ var DeviceSchema = new Schema({
     type: {type:String},
     details: {},
   }],
-
-
 }, {collection: 'Device'});
 
 mongoose.model('Device', DeviceSchema);

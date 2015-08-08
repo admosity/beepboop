@@ -1,8 +1,7 @@
 var router = require('express').Router()
   , mongoose = require('mongoose')
   , User = mongoose.model('User')
-  , moment = require('moment')
-  , async = require('async')
+  , moment = require('moment');
 
 require('../models/Device');
 var Device = mongoose.model('Device');
@@ -15,7 +14,9 @@ router.post('/', function(req, res){
   var user = req.user;
   var post = req.body;
   if(user && post.device){
-    
+    var device = new Device({
+      
+    });
     // var newPhoto = new Photo({
     //   url: post.url,
     //   owner: user,

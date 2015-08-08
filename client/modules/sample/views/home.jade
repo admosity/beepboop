@@ -1,13 +1,11 @@
 div.hero
   h1 we connect your hardware to the internet.
   div.get-started
-    a(href="#" class="btn btn-white") get started
+    a(href="#" ui-sref="login" class="btn btn-white") get started
     
     
 div.info-bit
-  h1 seamlessly connect any iot device in minutes
-  h2 easily create widgets to use on your own
-  h2 or sell on the beepboop marketplace
+  h1 connect any iot device in minutes
   div.row.logos
     div.column-3
       img(src="assets/images/venmo.png" alt="" class="img-fluid")
@@ -17,7 +15,29 @@ div.info-bit
       img(src="assets/images/twilio.png" alt="" class="img-fluid")
     div.column-3
       img(src="assets/images/battlehack.png" alt="" class="img-fluid")
-  
+
+
+div.bottom-info-bit
+  div.column-3.center
+    h1
+      i(class="fa fa-plug")
+    h1 connect
+    p your iot device
+  div.column-3.center
+    h1
+      i(class="fa fa-plus-square")
+    h1 create
+    p widgets for your device
+  div.column-3.center
+    h1
+      i(class="fa fa-credit-card")
+    h1 buy
+    p widgets from our marketplace
+  div.column-3.center
+    h1
+      i(class="fa fa-money")
+    h1 sell
+    p widgets on our marketplace
 
 div.featured-widgets
   h1 marketplace
@@ -25,4 +45,6 @@ div.featured-widgets
   div(class="widget column-4" style="background-image:url('https://static.pexels.com/photos/6966/abstract-music-rock-bw.jpg')")
   div(class="widget column-4" style="background-image:url('https://static.pexels.com/photos/5771/leaf-spring-leaves-young.jpg')")
   div(class="column-12")
-    a(href="#" class="btn block btn-purple") More
+    a(ui-sref="marketplace" class="btn block btn-white") More
+    
+    

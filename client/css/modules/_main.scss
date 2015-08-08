@@ -23,7 +23,7 @@ a { color:$var-white; }
 .hero {
   float:left;
   clear:both;
-  margin-top:4em;
+  margin-top:3.9em;
   text-align: center;
   width:100%;
   background:url('../assets/images/hero.png');
@@ -39,6 +39,7 @@ a { color:$var-white; }
     a {
       font-family:$lato;
       font-size:25px;
+      padding: 15px 50px;
     }
   }
   h1 {
@@ -52,24 +53,47 @@ a { color:$var-white; }
 }
 
 .featured-widgets {
+  background:$var-purple;
   text-align:center;
   width:100%;
   margin:20px auto;
   display: block;
   float:left;
-  padding:0 5%;
+  padding:2em 5%;
   h1 {
     font-family:$lato;
     font-weight:500;
     letter-spacing:2px;
     font-size: 30px;
-    color:$alt-purple;
+    color:$var-white;
     margin-bottom:1em;
   }
   .widget {
     background-size:cover;
     height:300px;
     display:block;
+  }
+}
+
+.bottom-info-bit {
+  text-align: center;
+  background:$var-white;
+  padding:2em 0;
+  float:left;
+  width:100%;
+  h1 {
+    font-family:$lato;
+    font-weight:500;
+    letter-spacing:2px;
+    font-size: 30px;
+    color:$light-purple;
+    margin-bottom:5px;
+  }
+  p {
+    font-family:$lato;
+    font-weight:500;
+    font-size: 16px;
+    color:$var-grey;
   }
 }
 
@@ -80,7 +104,7 @@ a { color:$var-white; }
   float:left;
   width:100%;
   .logos {
-    width:70%;
+    width: 750px;
     margin:0 auto;
   }
   h1 {
@@ -88,21 +112,82 @@ a { color:$var-white; }
     font-weight:500;
     letter-spacing:2px;
     font-size: 40px;
-    color:$var-grey;
+    color:$var-purple;
   }
   h2 {
     font-family:$lato;
     font-weight:500;
     letter-spacing:2px;
     font-size: 25px;
-    color:$var-grey;
+    color:$light-purple;
   }
 }
 
 
 
 
+// login page
 
+.login {
+  display: block;
+  float: left;
+  clear: both;
+  width:100%;
+  text-align: center;
+  margin: 100px auto 0;
+  h1 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-bottom:1em;
+  }
+  form {
+    width:350px;
+    margin:0 auto;
+  }
+  input[type="submit"] {
+    border:none;
+    width:100%;
+  }
+  input[type="text"] {
+    display:block;
+    margin:0 auto;
+    width:100%;
+    padding:1em 10px;
+  }
+}
+
+//dashboard
+
+.sidebar {
+  background:$var-purple;
+  position:fixed;
+  left:0;
+  height:100%;
+  width:180px;
+  padding:1em;
+  font-family:$lato;
+  @extend %list-reset;
+  h2 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-bottom:1em;
+  }
+  img.logo {
+    margin-left: 10px;
+  }
+  li.separate {
+    margin-top:2em;
+  }
+  ul {
+    margin-top:2em;
+    ul li a {
+      font-size:15px;
+    }
+  }
+}
+.dashboard-content {
+  margin-left:200px;
+}
 
 
 

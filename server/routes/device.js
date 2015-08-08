@@ -51,21 +51,14 @@ deviceIdRouter
     var id = req.params.id;
     var post = req.body;
     if(user && id && post.device){
-      Device.findById(id, function(err, device){
-        console.log("beep", device);
+      // update the device 
+      Device.findOne({_id: id, owner: req.user }, function(err, device){
+        device.updateDevice(post);
+        device.save(function(err) {
+          if(err) return res.error('500', "Something terrible happpened.")
+          return res.ok(device);
+        })
       });
-      // var newPhoto = new Photo({
-      //   url: post.url,
-      //   owner: user,
-      //   voteCount: 0
-      // });
-      // newPhoto.save(function(err){
-      //   if(!err){
-      //     res.ok(true);
-      //   }else{
-      //     res.error(401, "Failed to post photo");
-      //   }
-      // });
     }else{
       res.error("404", "Page not found");
     }
@@ -83,6 +76,7 @@ router.post('/', function(req, res){
       name: post.name,
       writeKey: writeKey,
       readKey: readKey,
+      base: true,
     });
     device.save(function(err){
       if(!err){

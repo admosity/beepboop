@@ -1,0 +1,29 @@
+// ==========================================================================
+// Respnsive/Tablet
+// Author: Mike Fortuna
+// ==========================================================================
+
+@media #{$tablet} {
+
+
+  .hide-tablet, .hide-tablet-inline {
+    display:none;
+  }
+
+}
+
+@media #{$tablet-portrait} {
+
+  @if $full-width-tablet-portrait == true {
+    @for $i from 1 through $grid-columns {
+      .column-#{$i} {
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+@media #{$tablet-landscape} {
+
+}

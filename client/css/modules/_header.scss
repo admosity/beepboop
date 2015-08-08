@@ -1,0 +1,61 @@
+// ==========================================================================
+// Header
+// ==========================================================================
+
+.header {
+  height:75px;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  background:$var-white;
+  color:$var-blue;
+  border-bottom:1px solid $var-blue;
+  z-index: 777;
+  @extend %list-reset;
+  @extend %list-inline;
+  @include transition-all(0.5s);
+  &:hover {
+    background:$var-white;
+  }
+  &.scrollHeader {
+    height:40px;
+    padding-top:0px;
+    color:$var-white;
+    &:hover {
+      background:$var-orange;
+    }
+    .wrapper {
+      margin:0.6em auto 0;
+      a {
+        margin-top:0em;
+        color:$var-white;
+        &:hover {
+          color:$var-green;
+        }
+      }
+      h1 {
+        font-size:$fsz-base;
+      }
+    }
+
+  }
+  a {
+    display:inline-block;
+    margin-top:1em;
+    font-size:$fsz-base;
+    font-family:$open-sans;
+    color:$var-blue;
+    &:hover {
+      color:$var-red;
+    }
+  }
+  @extend %list-reset;
+  .wrapper {
+    margin: 0.8em auto 0;
+    padding:0 10%;
+  }
+  [class*='column-'] {
+    padding:0em;
+  }
+}

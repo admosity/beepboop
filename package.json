@@ -47,11 +47,11 @@
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "~1.5.2",
     "gulp-watch": "^4.2.4",
-    "gulp-webpack": "~1.5.0",
     "jquery": "^2.1.4",
     "merge2": "~0.3.5",
     "ng-annotate-webpack-plugin": "^0.1.2",
     "vinyl-named": "~1.1.0",
-    "webpack": "~1.9.10"
+    "webpack": "~1.9.10",
+    "webpack-stream": "^2.1.0"
   }
 }

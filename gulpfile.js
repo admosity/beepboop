@@ -7,7 +7,7 @@ var jade = require('gulp-jade');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
-var webpack = require('gulp-webpack');
+var webpack = require('webpack-stream');
 
 var fs = require('fs');
 var browserSync = require('browser-sync').create();

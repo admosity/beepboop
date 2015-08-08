@@ -22,7 +22,6 @@
     "mime": "^1.3.4",
     "moment": "^2.8.4",
     "mongoose": "^4.0.4",
-    "mongoose-paginate": "git+https://github.com/admosity/mongoose-paginate",
     "morgan": "^1.5.3",
     "nconf": "^0.7.1",
     "passport": "^0.2.2",

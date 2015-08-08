@@ -36,6 +36,18 @@ module.exports = [
     }
   },
   {
+    name: 'dashboard',
+    state: {
+      url: '/dashboard',
+      views: {
+        content: {
+          templateUrl: viewsPrefix + 'dashboard.html',
+          // controller: 'SplashCtrl',
+        },
+      }
+    }
+  },
+  {
     name: 'login',
     state: {
       url: '/login',

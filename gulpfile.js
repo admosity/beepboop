@@ -1,3 +1,4 @@
+process.env.UV_THREADPOOL_SIZE = 100;
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var plumber = require('gulp-plumber');
@@ -66,7 +67,7 @@ gulp.task('client-scripts-dev', function(cb) {
     .pipe(plumber({
       errorHandler: scriptsErrorHandler
     }))
-    .pipe(named()) // used named for following the naming convention for files
+    // .pipe(named()) // used named for following the naming convention for files
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest('build/public/js'));
   cb();

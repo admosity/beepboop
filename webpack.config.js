@@ -25,14 +25,14 @@ module.exports = {
 
   entry: {
     app: path.join(__dirname, 'client/js/app.js'),
-    vendor: path.join(__dirname, 'client/js/vendor.js')
   },
 
   output: {
     filename: '[name].js',
+    path: path.join(__dirname, 'build/public/js')
   },
   // create source maps
-  devtool: 'source-map',
+  // devtool: 'source-map',
 
   module: {
     loaders: [
@@ -44,18 +44,17 @@ module.exports = {
         loader: "exports?window.angular"
       },
 
-      {
-        test: /[\/]jQuery\.js$/,
-        loader: "exports?window.$"
-      }
-
+    ],
+    noParse: [
+      /angular-ui/,
+      /jquery/
     ]
   },
 
   // look for these files
   resolve: {
     modulesDirectories: ["bower_components", "node_modules"],
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
+    extensions: ['', '.webpack.js', '.web.js', '.js'],
 
     // aliases for modules
     alias: resolveNpmDependencies({}, [
@@ -64,9 +63,10 @@ module.exports = {
     ])
   },
 
-  // externals: {
-  //   'google': 'google',
-  // },
+  externals: {
+    angular: 'angular',
+    '$': 'jQuery',
+  },
 
   plugins: [
     // check the main field in bower.json of loaded package for the proper 
@@ -74,12 +74,12 @@ module.exports = {
     new webpack.ResolverPlugin([
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
     ]),
-    // Export globals into all files
-    new webpack.ProvidePlugin({
-      // '$': 'jquery',
-      // jQuery: "jquery",
-      // angular: 'angular',
-    }),
+    // // Export globals into all files
+    // new webpack.ProvidePlugin({
+    //   // '$': 'jquery',
+    //   // jQuery: "jquery",
+    //   // angular: 'angular',
+    // }),
     // Keep the angular dependency format DRY
     new ngAnnotatePlugin({
       add: true,

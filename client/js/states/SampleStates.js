@@ -2,16 +2,35 @@
 // sample directory for this prefix would be client/modules/sample/
 var modulePrefix = '/modules/sample/';
 var viewsPrefix = modulePrefix + 'views/';
+var partialsPrefix = modulePrefix + 'partials/';
 
 module.exports = [
   {
-    name: 'sample-state',
+    name: 'home',
     state: {
       url: '/',
       views: {
+        header: {
+          templateUrl: partialsPrefix + 'header.html',
+        },
         content: {
-          templateUrl: viewsPrefix + 'sample.html',
-          controller: 'SampleCtrl',
+          templateUrl: viewsPrefix + 'home.html',
+          // controller: 'SampleCtrl',
+        },
+      }
+    }
+  },
+  {
+    name: 'marketplace',
+    state: {
+      url: '/marketplace',
+      views: {
+        header: {
+          templateUrl: partialsPrefix + 'header.html',
+        },
+        content: {
+          templateUrl: viewsPrefix + 'marketplace.html',
+          // controller: 'SplashCtrl',
         },
       }
     }

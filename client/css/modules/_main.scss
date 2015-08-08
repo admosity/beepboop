@@ -50,6 +50,28 @@ a { color:$var-white; }
   }
 }
 
+.featured-widgets {
+  text-align:center;
+  width:100%;
+  margin:20px auto;
+  display: block;
+  float:left;
+  padding:0 5%;
+  h1 {
+    font-family:$lato;
+    font-weight:500;
+    letter-spacing:2px;
+    font-size: 30px;
+    color:$alt-purple;
+    margin-bottom:1em;
+  }
+  .widget {
+    background-size:cover;
+    height:200px;
+    display:block;
+  }
+}
+
 quote {
   margin:15px 0;
   width:100%;

@@ -7,18 +7,10 @@ html(lang="en")
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
   body
   
-  div.header
-    div.column-3
-      img(src="/assets/images/logo.png", alt="")
-    div.column-7 &nbsp;
-    div.column-2 
-      a(href="" class="signin")
-        i(class="fa fa-sign-in")
-    
-  div.hero
-    h1 we connect your hardware to the internet.
-    div.get-started
-      a(href="#" class="btn btn-white") get started
-      
+  div(ui-view="header")
+        
+  div(ui-view="content")
+  
+
   footer
     script(src='/js/app.js')

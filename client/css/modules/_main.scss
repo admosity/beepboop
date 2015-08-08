@@ -39,6 +39,7 @@ a { color:$var-white; }
     a {
       font-family:$lato;
       font-size:25px;
+      padding: 15px 50px;
     }
   }
   h1 {
@@ -80,7 +81,7 @@ a { color:$var-white; }
   float:left;
   width:100%;
   .logos {
-    width:70%;
+    width: 750px;
     margin:0 auto;
   }
   h1 {
@@ -88,14 +89,14 @@ a { color:$var-white; }
     font-weight:500;
     letter-spacing:2px;
     font-size: 40px;
-    color:$var-grey;
+    color:$var-purple;
   }
   h2 {
     font-family:$lato;
     font-weight:500;
     letter-spacing:2px;
     font-size: 25px;
-    color:$var-grey;
+    color:$light-purple;
   }
 }
 
@@ -111,6 +112,11 @@ a { color:$var-white; }
   width:100%;
   text-align: center;
   margin: 100px auto 0;
+  h1 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-bottom:1em;
+  }
   form {
     width:350px;
     margin:0 auto;

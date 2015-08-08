@@ -4,7 +4,7 @@
 
 body {
   background:$var-white;
-  &.login-page {
+  &.login {
     background:url('../assets/images/login-bg.jpg');
     background-size:cover;
   }

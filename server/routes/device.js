@@ -1,7 +1,8 @@
 var router = require('express').Router()
   , mongoose = require('mongoose')
   , User = mongoose.model('User')
-  , moment = require('moment');
+  , moment = require('moment')
+  , shortid = require('shortid');
 
 require('../models/Device');
 var Device = mongoose.model('Device');
@@ -39,8 +40,8 @@ router.post('/', function(req, res){
   var user = req.user;
   var post = req.body;
   if(user && post.device){
-    var writeKey = "asdf";
-    var readKey = "asdf";
+    var writeKey = shortid.generate();
+    var readKey = shortid.generate();
 
     var device = new Device({
       owner: user,
@@ -51,7 +52,7 @@ router.post('/', function(req, res){
       if(!err){
         res.ok(true);
       }else{
-        res.error(401, "Failed to post photo");
+        res.error(401, "Failed to create device");
       }
     });
   }else{

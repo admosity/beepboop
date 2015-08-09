@@ -335,6 +335,46 @@ p.info {
   }
 }
 
+// buy more page
+
+.buy-form {
+  display: inline-block;
+  float: none;
+  width:100%;
+  text-align: center;
+  margin: 0 auto;
+  .buy-inner {
+    width: 392px;
+    margin: 0 auto;
+    padding: 1em;
+  }
+  h1 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-bottom:1em;
+  }
+  form {
+    margin:0 auto;
+  }
+  input[type="submit"] {
+    border:none;
+    width:100%;
+    margin-top: 1em;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    display:block;
+    outline:none;
+    margin:0 auto;
+    width:100%;
+    padding:1em 10px;
+    border:1px solid $light-grey;
+    &:focus {
+      border:1px solid $var-purple;
+    }
+  }
+}
+
+
 // login page
 
 .login-form {

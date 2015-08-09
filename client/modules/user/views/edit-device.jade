@@ -12,8 +12,10 @@ div.dashboard-wrapper
           input(type="text" placeholder="Bathroom Sensor" ng-model="device.name")
           label device key
           input(type="text" placeholder="Device Key" disabled ng-model="device._id")
-          label endpoint URL
-          input(type="text" placeholder="Endpoint URL" disabled ng-model="device.endpointUrl")
+          label read payload URL
+          input(type="text" placeholder="Read Payload URL" disabled ng-model="device.endpointUrl")
+          label write payload URL
+          input(type="text" placeholder="Write Payload URL" disabled ng-model="device.payloadUrl")
           
           textarea(placeholder="Default Template" ng-model="device.template")
           div.api

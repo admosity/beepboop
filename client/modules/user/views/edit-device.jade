@@ -12,8 +12,10 @@ div.dashboard-wrapper
           input(type="text" placeholder="Bathroom Sensor" ng-model="device.name")
           label device key
           input(type="text" placeholder="Device Key" disabled ng-model="device._id")
-          label endpoint URL
-          input(type="text" placeholder="Endpoint URL" disabled ng-model="device.endpointUrl")
+          label read payload URL
+          input(type="text" placeholder="Read Payload URL" disabled ng-model="device.endpointUrl")
+          label write payload URL
+          input(type="text" placeholder="Write Payload URL" disabled ng-model="device.payloadUrl")
           
           textarea(placeholder="Default Template" ng-model="device.template")
           div.api
@@ -39,7 +41,7 @@ div.dashboard-wrapper
                 input(type="text" placeholder="SID" ng-model="a.creds.sid")
                 label Auth token
                 input(type="text" placeholder="Auth token" ng-model="a.creds.authToken")
-                label phone number from
+                label twilio phone number
                 input(type="tel" placeholder="Send Text From" ng-model="a.details.from")
                 label phone number to
                 input(type="tel" placeholder="Send Text To" ng-model="a.details.to")
@@ -82,10 +84,11 @@ div.dashboard-wrapper
                 label variable
                 input(type="text" placeholder="Var")
           label.center
-            input(type="checkbox" checked) 
+            input(type="checkbox" checked ng-model="checked") 
             | &nbsp; public?
-          label.clear add description
-          input(type="text" placeholder="Description")
+          div(ng-hide="!checked")
+            label.clear add description
+            input(type="text" placeholder="Description")
           
           input(type="submit" class="btn btn-purple" value="Save")
           

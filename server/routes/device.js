@@ -148,6 +148,14 @@ function sendTwilio(api, payload){
   });
 }
 
+function sendTweet(api, payload){
+
+}
+
+function sendSendGrid(api, payload){
+  
+}
+
 router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
   var query = req.query;
   var device = req.device;
@@ -160,6 +168,10 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
       switch(a.name) {
         case 'twilio':
           sendTwilio(a, device.payload); 
+        case 'twitter':
+          sendTweet(a, device.payload); 
+        case 'sendgrid':
+          sendSendGrid(a, device.payload); 
       }
       cb();
     });

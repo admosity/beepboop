@@ -264,6 +264,9 @@ p.info {
     width:100%;
     margin-top: 1em;
   }
+  textarea {
+    max-width: 100%;
+  }
   textarea, input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
     display:block;
     outline:none;

@@ -11,9 +11,13 @@ module.service('Device', function($http, UserState, $q, $compile, $sce) {
     function Device(_device) {
       for(var k in _device) {
         this[k] = _device[k];
+        if(k == 'writeKey') {
+          this.payloadUrl = window.location.protocol + '//' + window.location.hostname + '/api/devices/' + _device._id + '/payload?write=' + this[k] + '&payload=Hello%20World';
+        }
         if(k == 'readKey') {
           this.endpointUrl = window.location.protocol + '//' + window.location.hostname + '/api/devices/' + _device._id + '/payload?read=' + this[k];
         }
+
       }
 
       // if(!(_device instanceof Device)) {

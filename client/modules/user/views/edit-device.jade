@@ -51,13 +51,18 @@ div.dashboard-wrapper
                 textarea(placeholder="Message" ng-model="a.details.body")
               div.api-item(ng-switch-when="twitter")
                 h2 Twitter
-                  a(href="" ng-click="removeApi($index)")
-                    i.fa.fa-minus-circle
-                label message
-                textarea(placeholder="Tweet Message" ng-model="a.details.message")
-              //- div.column-1(ng-if="device.API.length")
-              //-   a(href="" class="add-filter lrg" ng-click="removeApi($index)") 
-              //-     i.fa.fa-minus-circle
+                    a(href="" ng-click="removeApi($index)")
+                      i.fa.fa-minus-circle
+                  label Consumer Key
+                  input(type="text" placeholder="Consumer Key" ng-model="a.creds.consumer_key")
+                  label Consumer Secret
+                  input(type="text" placeholder="Send Email To" ng-model="a.creds.consumer_secret")
+                  label Access Token Key
+                  input(type="text" placeholder="Send Email From" ng-model="a.creds.access_token_key")
+                  label Access Token Secret
+                  input(type="text" placeholder="Subject" ng-model="a.creds.access_token_secret")
+                  label Tweet
+                  textarea(placeholder="Tweet" ng-model="a.details.tweet")
               div.api-item(ng-switch-when="sendgrid")
                 h2 SendGrid
                   a(href="" ng-click="removeApi($index)")

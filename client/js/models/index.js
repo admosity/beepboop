@@ -1,4 +1,4 @@
 require('./module');
-require('./User.js');
+require('./User');
 require('./Device');
 

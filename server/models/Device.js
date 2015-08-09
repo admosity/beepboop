@@ -21,6 +21,7 @@ var DeviceSchema = new Schema({
     _id: false,
     name: {type:String},
     details: Schema.Types.Mixed,
+    creds: Schema.Types.Mixed,
   }],
 
   base:        {type: Boolean, default: false},

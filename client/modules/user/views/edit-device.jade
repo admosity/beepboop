@@ -1,35 +1,38 @@
 include ../partials/sidebar.jade
 
-div.dashboard-content
-  div.device-form
-    div.device-inner
-      h1 edit device
-        a(href="" class="btn btn-sm btn-purple" ui-sref="edit-widget") edit widget
-      form(action="")
-        label device name
-        input(type="text" placeholder="Bathroom Sensor")
-        label device key
-        input(type="text" placeholder="Device Key")
-        label endpoint URL
-        input(type="text" placeholder="Endpoint URL")
-        label callback URL
-        input(type="text" placeholder="Callback URL")
-        
-        h2 edit filters
-        p create conditions for your widget to function
-        p if
-        label variable
-        input(type="text" placeholder="Var")
-        p is
-        select(name="")
-          option >
-          option <
-          option >=
-          option <=
-          option =
-        label variable
-        input(type="text" placeholder="Var")
-        label.center
-          input(type="checkbox") sell this widget
-        a(href="#")
-        input(type="submit" class="btn btn-purple" value="Save")
+div.dashboard-wrapper
+  div.dashboard-header
+    h1 dashboard
+    p my widgets
+  div.dashboard-content
+    div.device-form
+      div.device-inner
+        h1 edit device
+          a(href="" class="btn btn-sm btn-purple" ui-sref="edit-widget") edit widget
+        form(action="")
+          label device name
+          input(type="text" placeholder="Bathroom Sensor")
+          label device key
+          input(type="text" placeholder="Device Key")
+          label endpoint URL
+          input(type="text" placeholder="Endpoint URL")
+          label callback URL
+          input(type="text" placeholder="Callback URL")
+          
+          h2 edit filters
+          p create conditions for your widget to function
+          p if
+          label variable
+          input(type="text" placeholder="Var")
+          p is
+          select(name="")
+            option >
+            option <
+            option >=
+            option <=
+            option =
+          label variable
+          input(type="text" placeholder="Var")
+          label.center
+            input(type="checkbox") sell this widget
+          input(type="submit" class="btn btn-purple" value="Save")

@@ -1,12 +1,15 @@
 include ../partials/sidebar.jade
-
-div.device-form
-  div.device-inner
-    h1 edit widget
-      a(href="" class="btn btn-sm btn-purple" ui-sref="edit-device") edit device
-    form(action="")
-      label widget name
-      input(type="text" placeholder="Bathroom Sensor")
-      label widget template
-      textarea(placeholder="YES")
-      input(type="submit" class="btn btn-purple" value="Save")
+div.dashboard-wrapper
+  div.dashboard-header
+    h1 dashboard
+  div.dashboard-content
+    div.device-form
+      div.device-inner
+        h1 edit widget
+          a(href="" class="btn btn-sm btn-purple" ui-sref="edit-device") edit device
+        form(action="")
+          label widget name
+          input(type="text" placeholder="Bathroom Sensor")
+          label widget template
+          textarea(placeholder="YES")
+          input(type="submit" class="btn btn-purple" value="Save")

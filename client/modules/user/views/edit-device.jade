@@ -5,7 +5,8 @@ div.dashboard-wrapper
   div.dashboard-content
     div.device-form
       div.device-inner
-        h1 edit {{device.name}}
+        h1 Editing
+        h2 {{device.name}}
         form(ng-submit="updateDevice($event)")
           label device name
           input(type="text" placeholder="Bathroom Sensor" ng-model="device.name")
@@ -30,7 +31,10 @@ div.dashboard-wrapper
                 i.fa.fa-plus-circle
 
             div(ng-repeat="a in device.API" ng-switch="a.name")
-              div.column-10(ng-switch-when="twilio")
+              div.api-item(ng-switch-when="twilio")
+                h2 twilio
+                  a(href="" ng-click="removeApi($index)")
+                    i.fa.fa-minus-circle
                 label SID
                 input(type="text" placeholder="SID" ng-model="a.creds.sid")
                 label Auth token
@@ -41,29 +45,19 @@ div.dashboard-wrapper
                 input(type="tel" placeholder="Send Text To" ng-model="a.details.to")
                 label message
                 textarea(placeholder="Message" ng-model="a.details.body")
-              div.column-10(ng-switch-when="twitter")
+              div.api-item(ng-switch-when="twitter")
+                h2 twitter
+                  a(href="" ng-click="removeApi($index)")
+                    i.fa.fa-minus-circle
                 label message
                 textarea(placeholder="Tweet Message" ng-model="a.details.message")
-              div.column-1(ng-if="device.API.length")
-                a(href="" class="add-filter lrg" ng-click="removeApi($index)") 
-                  i.fa.fa-minus-circle
+              //- div.column-1(ng-if="device.API.length")
+              //-   a(href="" class="add-filter lrg" ng-click="removeApi($index)") 
+              //-     i.fa.fa-minus-circle
 
             
-            br
-            div.api-item
-              h2 custom api
-                a(href="")
-                  i.fa.fa-minus-circle
-              label callback URL
-              input(type="text" placeholder="Callback URL")
-            div.api-item
-              h2 twitter
-                a(href="")
-                  i.fa.fa-minus-circle
-              label api key
-              input(type="text" placeholder="918237192837129873")
-            br
-          div.filters
+
+          //- div.filters
             h2 filters
               a(href="" class="add-filter") 
                 i.fa.fa-plus-circle

@@ -9,3 +9,4 @@ require('./module');
  require('./DashboardCtrl');
  require('./EditDeviceCtrl');
  require('./BuyKeyCtrl');
+require('./SingleWidgetCtrl');

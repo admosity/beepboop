@@ -9,7 +9,7 @@ div.dashboard-wrapper
         div.widget-inner
 
           h1 {{d.name}}
-          p status:
-          inject-d(ng-init="payload = d.payload" d="d")
+          md-content
+            inject-d(ng-init="payload = d.payload" d="d")
       
   

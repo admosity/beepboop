@@ -94,5 +94,21 @@ module.exports = [
         },
       }
     }
-  }
+  },
+
+  {
+    name: 'single-widget',
+    state: {
+      url: '/widget/:id',
+      views: {
+        // sidebar: {
+        //   templateUrl: partialsPrefix + 'sidebar.html',
+        // },
+        content: {
+          templateUrl: viewsPrefix + 'single-widget.html',
+          controller: 'SingleWidgetCtrl',
+        },
+      }
+    }
+  },
 ]

@@ -140,15 +140,18 @@ function generateResolved(payload, str) {
   return str;
 }
 
-function sendTwilio(api, payload){
+function sendTwilio(api, payload, device){
   var client = require('twilio')(api.creds.sid, api.creds.authToken);
   //Send an SMS text message
   var body = generateResolved(payload, api.details.body);
   client.sendMessage({to: api.details.to, from: api.details.from, body: body}, function(err, responseData) {
+    if(err){
+      sendPusher(device, "error", "Twilio Error: " + err)
+    }
   });
 }
 
-function sendTweet(api, payload){
+function sendTweet(api, payload, device){
   var Twitter = require('twitter');
    
   var client = new Twitter({
@@ -158,15 +161,18 @@ function sendTweet(api, payload){
     access_token_secret: api.creds.access_token_secret
   });
 
-  client.post('statuses/update', {status: api.details.tweet},  function(error, tweet, response){
+  client.post('statuses/update', {status: generateResolved(api.details.tweet)},  function(error, tweet, response){
     // if(error) throw error;
-    console.log(error);
-    console.log(tweet);  // Tweet body. 
-    console.log(response);  // Raw response object. 
+    // console.log(error);
+    if(error){
+      sendPusher(device, "error", "Twitter Error: " + error[0]['message']);
+    }
+    // console.log(tweet);  // Tweet body. 
+    // console.log(response);  // Raw response object. 
   });
 }
 
-function sendSendGrid(api, payload){
+function sendSendGrid(api, payload, device){
   var sendgrid  = require('sendgrid')(api.creds.key);
   var subject = generateResolved(payload, api.details.subject);
   var body = generateResolved(payload, api.details.body);
@@ -176,8 +182,17 @@ function sendSendGrid(api, payload){
     subject:  subject,
     text:     body
   }, function(err, json) {
-    console.log(err, json);
+    if(err){
+      sendPusher(device, "error", "Sendgrid Error: " + err);
+    }
   });
+}
+
+function sendPusher(device, type, message){
+  var key = 'device_' + device.readKey;
+  var obj = {};
+  obj[type] = message;
+  pusher.trigger(key, 'update', obj);
 }
 
 router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
@@ -192,19 +207,17 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
       try{
         switch(a.name) {
           case 'twilio':
-            sendTwilio(a, device.payload); 
+            sendTwilio(a, device.payload, device); 
           case 'twitter':
-            sendTweet(a, device.payload); 
+            sendTweet(a, device.payload, device); 
           case 'sendgrid':
-            sendSendGrid(a, device.payload); 
+            sendSendGrid(a, device.payload, device); 
         }
       }catch(e){}
       cb();
     });
-    var key = 'device_' + device.readKey;
-    pusher.trigger(key, 'update', {
-      "message": device.payload
-    });
+    
+    sendPusher(device, "message", device.payload);
 
     needSave = true;
   }

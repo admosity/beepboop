@@ -12,7 +12,8 @@ module.controller('DashboardCtrl', function($scope, Device, $mdToast) {
       channels.push(channel);
       var updatePusher = function(data) {
         if(data.message){
-          angular.copy(data.message, device.payload);
+          if(angular.isObject(device.payload)) angular.copy(data.message, device.payload)
+          else device.payload = data.message;
           $mdToast.show(
             $mdToast.simple()
             .content(data.message)

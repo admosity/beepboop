@@ -13,38 +13,11 @@ div.dashboard-wrapper
       h1 0
       h2 sold
   div.dashboard-content
-    div.featured-widgets
-      div(class="widget column-4" style="background-image:url('/assets/images/example.jpg')")
+    div.featured-widgetsul
+      //- li()
+      div(class="widget column-4" ng-repeat="d in UserState.devices"  style="background-image:url('/assets/images/example.jpg')")
         div.widget-inner
-          h1 widget name
-          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
-          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
-      div(class="widget column-4" style="background-image:url('/assets/images/example.jpg')")
-        div.widget-inner
-          h1 widget name
-          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
-          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
-      div(class="widget column-4" style="background-image:url('/assets/images/example.jpg')")
-        div.widget-inner
-          h1 widget name
-          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
-          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
-          
-      div(class="widget column-4" style="background-image:url('/assets/images/example.jpg')")
-        div.widget-inner
-          h1 widget name
-          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
-          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
-          
-      div(class="widget column-4" style="background-image:url('/assets/images/example.jpg')")
-        div.widget-inner
-          h1 widget name
-          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
-          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
-          
-      div(class="widget column-4" style="background-image:url('/assets/images/example.jpg')")
-        div.widget-inner
-          h1 widget name
-          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
-          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
+          h1 {{d.name}}
+          a(href="#" ng-click="UserState.editDevice(d)" class="btn block btn-white") edit widget
+      
   

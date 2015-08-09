@@ -14,6 +14,24 @@ div.dashboard-wrapper
           input(type="text" placeholder="Device Key" disabled ng-model="device._id")
           label endpoint URL
           input(type="text" placeholder="Endpoint URL" disabled ng-model="device.endpointUrl")
+          label callback URL
+          input(type="text" placeholder="Callback URL")
+          
+          textarea(placeholder="Default Template" ng-model="device.template")
+          h2 filters
+            a(href="" class="add-filter") 
+              i.fa.fa-plus-circle
+          br
+          p.info create conditions for your widget to function. example: if LIGHT = ON
+          div.filter-item
+            h2 filter 1
+              a(href="")
+                i.fa.fa-minus-circle
+            div.column-4
+              label variable
+              input(type="text" placeholder="Var")
+            div.column-4
+              label operator
           div.api
             h2 APIs
             br

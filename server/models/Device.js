@@ -24,7 +24,7 @@ var DeviceSchema = new Schema({
   }],
 
   base:        {type: Boolean, default: false},
-  baseTemplate: {type: String, default: "<div>{{payload}}</div>"},
+  template: {type: String, default: "{{payload | json}}"},
   quantity:    {type: Number, default: 0},
   onMarket:    {type: Boolean, default: false},
   isPublic:    {type: Boolean, default: false},

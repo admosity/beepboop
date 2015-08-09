@@ -1,5 +1,5 @@
 var module = require('./module');
-module.service('Device', function($http, UserState, $q) {
+module.service('Device', function($http, UserState, $q, $compile, $sce) {
   var Device = (function() {
     Device.displayName = 'Device';
     var prototype = Device.prototype, constructor = Device;
@@ -15,6 +15,10 @@ module.service('Device', function($http, UserState, $q) {
           this.endpointUrl = window.location.protocol + '//' + window.location.hostname + '/api/devices/' + _device._id + '/payload?read=' + this[k];
         }
       }
+
+      // if(!(_device instanceof Device)) {
+      //   this.template = $sce.trustAsHtml(this.template);
+      // }
     }
 
     var b = '/api/devices/';

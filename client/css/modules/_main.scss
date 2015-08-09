@@ -137,6 +137,14 @@ a { color:$var-white; }
   }
 }
 
+.device-form .filters {
+  display:block;
+  clear: both;
+  .filter-item {
+    display:block;
+  }
+}
+
 .poweredby {
   text-align:center;
   padding:1em 0;

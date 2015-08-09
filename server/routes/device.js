@@ -159,7 +159,8 @@ function sendTweet(api, payload){
   });
 
   client.post('statuses/update', {status: api.details.tweet},  function(error, tweet, response){
-    if(error) throw error;
+    // if(error) throw error;
+    console.log(error);
     console.log(tweet);  // Tweet body. 
     console.log(response);  // Raw response object. 
   });
@@ -188,14 +189,16 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
     device.payload = query.payload;
     async.each(device.API, function(a, cb) {
       // DO API action
-      switch(a.name) {
-        case 'twilio':
-          sendTwilio(a, device.payload); 
-        case 'twitter':
-          sendTweet(a, device.payload); 
-        case 'sendgrid':
-          sendSendGrid(a, device.payload); 
-      }
+      try{
+        switch(a.name) {
+          case 'twilio':
+            sendTwilio(a, device.payload); 
+          case 'twitter':
+            sendTweet(a, device.payload); 
+          case 'sendgrid':
+            sendSendGrid(a, device.payload); 
+        }
+      }catch(e){}
       cb();
     });
     var key = 'device_' + device.readKey;

@@ -7,7 +7,7 @@ div.dashboard-wrapper
     div.device-form
       div.device-inner
         h1 connect new device
-        form(action="")
-          input(type="text" placeholder="Device Name")
-          textarea(placeholder="Default Template")
+        form(ng-submit="newDevice()")
+          input(type="text" placeholder="Device Name" ng-model="device.name")
+          textarea(placeholder="Default Template" ng-model="device.template")
           input(type="submit" class="btn btn-purple" value="Connect")

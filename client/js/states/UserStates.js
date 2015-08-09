@@ -30,7 +30,7 @@ module.exports = [
         // },
         content: {
           templateUrl: viewsPrefix + 'new-device.html',
-          // controller: 'LoginCtrl',
+          controller: 'NewDeviceCtrl',
         },
       }
     }

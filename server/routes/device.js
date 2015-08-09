@@ -110,7 +110,6 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
       payload: device.payload,
       action: device.action,
     };
-    console.log("123456",device);
     if(needSave) {
       return device.save(function(err) {
         return res.ok(action);
@@ -120,7 +119,7 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
     }
   }else if(needSave){
     return device.save(function(err) {
-      return res.ok(action);
+      return res.ok();
     });
   }
 

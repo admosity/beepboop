@@ -38,11 +38,16 @@ app.config(function($urlRouterProvider, $locationProvider, $urlMatcherFactoryPro
 
 })
 
-.run(function($rootScope, $state) {
+.run(function($rootScope, $state, UserState) {
   ////////////////////////
   // Expose ui router $state
   ////////////////////////
   $rootScope.$state = $state;
+
+  ////////////////////////
+  // Expose Userstate
+  ////////////////////////
+  $rootScope.UserState = UserState;
 
 
   $rootScope.$on('$stateChangeSuccess', 

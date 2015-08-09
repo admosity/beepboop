@@ -66,6 +66,11 @@ if (development) {
 	app.use(errorHandler());
 }
 
+if (process.env.DEBUG) {
+	app.use(morgan('dev'));
+	app.use(errorHandler());
+}
+
 // app.set('view engine', 'ejs');
 
 /** Serve the public static assets before processing anything  */

@@ -1,7 +1,7 @@
 
 var module = require('./module');
 
-module.service('User', function($http, UserState) {
+module.service('User', function($http, UserState, $scope) {
   var User = (function() {
     User.displayName = 'User';
     var prototype = User.prototype, constructor = User;
@@ -39,13 +39,6 @@ module.service('User', function($http, UserState) {
       return $http.post(b + '/signup', signupData).then(function(data) {
         UserState.user = new User(data.data);
         return UserState.user;
-      });
-    };
-
-    User.buykeys = function(ccData) {
-      return $http.post(b + '/buykeys', ccData).then(function(data) {
-        console.log(data);
-        return data;
       });
     };
 

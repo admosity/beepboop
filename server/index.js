@@ -99,6 +99,44 @@ require('./auth');
 // Load routes
 require('./routes')(app);
 
+//YOLO FUCK IT
+var util = require('util');
+var braintree = require('braintree');
+
+var gateway = braintree.connect({
+  environment: braintree.Environment.Sandbox,
+  merchantId: '23dqvgbhs484bh76',
+  publicKey: '2nftbpkv9w83hzqt',
+  privateKey: 'f806b1a45a7d14aff57df46a1eacbf62'
+});
+
+app.get("/client_token", function (req, res) {
+  gateway.clientToken.generate({}, function (err, response) {
+    res.send(response.clientToken);
+  });
+});
+
+app.post('/checkout', function(req, res) {
+  if(req.user){
+    var nonce = req.body.payment_method_nonce;
+    gateway.transaction.sale({
+      amount: '2.00',
+      paymentMethodNonce: nonce,
+    }, function (err, result) {
+      if (err) throw err;
+      if (result.success) {
+        // util.log('Transaction ID: ' + result.transaction.id);
+        req.user.maxKeys += 10;
+        req.user.save(function(err){
+          res.redirect('/buy-thanks');
+        });
+      } else {
+        res.error(500, result.message);
+      }
+    });
+  }
+});
+
 // Serve angular index
 var theIndex = require('fs').readFileSync(__dirname + "/public/index.html");
 app.use('*', function(req, res) {

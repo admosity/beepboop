@@ -8,3 +8,4 @@ require('./module');
  require('./NewDeviceCtrl');
  require('./DashboardCtrl');
  require('./EditDeviceCtrl');
+ require('./BuyKeyCtrl');

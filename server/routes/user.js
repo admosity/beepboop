@@ -34,7 +34,7 @@ var gateway = braintree.connect({
   privateKey: 'f806b1a45a7d14aff57df46a1eacbf62'
 });
 
-router.post('/buy', function(req, res) {
+router.post('/buykeys', function(req, res) {
   if(req.user){
     var post = req.body;
     gateway.transaction.sale({

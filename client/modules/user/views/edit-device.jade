@@ -21,13 +21,28 @@ div.dashboard-wrapper
             p.info connect APIs with your device
             br
             div.column-10
-              select(name="")
+              select(name="" ng-model="api")
                 option(value="") Custom API
-                option(value="") Twilio
-                option(value="") Twitter
+                option(value="twilio") Twilio
+                option(value="twitter") Twitter
             div.column-1
-              a(href="" class="add-filter lrg") 
+              a(href="" class="add-filter lrg" ng-click="addNewApi(api)") 
                 i.fa.fa-plus-circle
+
+            div(ng-repeat="a in device.API" ng-switch="a.name")
+
+              div.column-10(ng-switch-when="twilio")
+                label phone number
+                input(type="text" placeholder="Send Text To")
+                label message
+                textarea(placeholder="Tweet Message")
+              div.column-10(ng-switch-when="twitter")
+                label message
+                textarea(placeholder="Tweet Message")
+              div.column-1(ng-if="device.API.length")
+                a(href="" class="add-filter lrg" ng-click="removeApi($index)") 
+                  i.fa.fa-minus-circle
+
             
             br
             div.api-item

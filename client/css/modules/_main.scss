@@ -354,6 +354,11 @@ a { color:$var-white; }
   padding:1em;
   font-family:$lato;
   @extend %list-reset;
+  a {
+    &:hover {
+      color:$lighter-purple;
+    }
+  }
   h2 {
     color:$alt-purple;
     font-family:$lato;
@@ -382,14 +387,14 @@ a { color:$var-white; }
     margin-top:2em;
     ul li a {
       font-size:15px;
-      &:hover {
-        color:$lighter-purple;
-      }
     }
   }
 }
 .dashboard-content {
   margin-left:200px;
+  .dashboard-header {
+    background:$light-grey;
+  }
 }
 
 

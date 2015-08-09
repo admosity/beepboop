@@ -1,7 +1,7 @@
 
 var module = require('./module');
 
-module.service('User', function($http) {
+module.service('User', function($http, UserState) {
   var User = (function() {
     User.displayName = 'User';
     var prototype = User.prototype, constructor = User;
@@ -12,26 +12,29 @@ module.service('User', function($http) {
      */
     function User(_user) {
       this._user = _user;
-      for(var k in user) {
-        this[k] = user[k];
+      for(var k in _user) {
+        this[k] = _user[k];
       }
     }
 
     var b = '/api/users';
 
-    this.login = function(loginData) {
+    User.login = function(loginData) {
       var self = this;
 
       return $http.post(b + '/login', loginData).then(function(data) {
-        return new User(data.data);
+        UserState.user = new User(data.data);
+        return UserState.user;
       });
     };
 
-    this.signup = function(signupData) {
+    User.signup = function(signupData) {
       return $http.post(b + '/signup', signupData).then(function(data) {
-        return new User(data.data);
+        UserState.user = new User(data.data);
+        return UserState.user;
       });
-    }
+    };
+
 
     return User;
   })();

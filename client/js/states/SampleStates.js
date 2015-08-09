@@ -75,7 +75,7 @@ module.exports = [
         },
         content: {
           templateUrl: viewsPrefix + 'login.html',
-          // controller: 'SplashCtrl',
+          controller: 'LoginCtrl',
         },
       }
     }

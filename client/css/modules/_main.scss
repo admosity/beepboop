@@ -354,8 +354,15 @@ a { color:$var-white; }
   padding:1em;
   font-family:$lato;
   @extend %list-reset;
+  a {
+    @include transition-all(0.5s);
+    font-size:17px;
+    &:hover {
+      color:$lighter-purple;
+    }
+  }
   h2 {
-    color:$alt-purple;
+    color:$var-white;
     font-family:$lato;
     font-size: 18px;
     display:inline-block;
@@ -364,32 +371,30 @@ a { color:$var-white; }
       @include transition-all(0.5s);
       display:inline-block;
       position: relative;
-      top: -2px;
+      top: 0;
       left: 10px;
-      color:$alt-purple;
+      color:$lighter-purple;
+      color:$var-white;
       &:hover {
-        color:$var-white;
+        color:$lighter-purple;
       }
     }
   }
   img.logo {
-    margin-left: 10px;
+    margin-left: 20px;
   }
   li.separate {
     margin-top:2em;
   }
   ul {
     margin-top:2em;
-    ul li a {
-      font-size:15px;
-      &:hover {
-        color:$lighter-purple;
-      }
-    }
   }
 }
 .dashboard-content {
   margin-left:200px;
+  .dashboard-header {
+    background:$light-grey;
+  }
 }
 
 

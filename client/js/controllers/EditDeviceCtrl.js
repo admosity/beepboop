@@ -33,8 +33,10 @@ module.controller('EditDeviceCtrl', function($scope, Device, UserState, $mdDialo
 
   $scope.addNewApi = function(api) {
     $scope.device.API.push({
+      details: {
+
+      },
       name: api,
-      details: {}
     });
   };
 

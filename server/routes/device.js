@@ -3,7 +3,8 @@ var Router = require('express').Router
   , mongoose = require('mongoose')
   , User = mongoose.model('User')
   , moment = require('moment')
-  , shortid = require('shortid');
+  , shortid = require('shortid')
+  , async = require('async');
 
 require('../models/Device');
 var Device = mongoose.model('Device');
@@ -112,6 +113,22 @@ router.post('/', function(req, res){
 ////////////////////////
 // device facing endpoints
 ////////////////////////
+function generateResolved(payload, str) {
+  "use strict";
+  var regex = /{{(.*?)}}/g;
+  var match;
+  while((match = regex.exec(str)) !== null) {
+    var matchFound = match[0];
+    try {
+      var resolvedStr = eval(matchFound).toString();
+      str = str.replace(/{{(.*?)}}/, resolvedStr);
+    } catch (err) {
+      str = str.replace(/{{(.*?)}}/, '');
+    }
+  }
+  return str;
+}
+
 
 router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
   var query = req.query;
@@ -120,6 +137,13 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
   var needSave = false;
   if(query.write && query.write == req.device.writeKey && query.payload) {
     device.payload = query.payload;
+    async.each(device.API, function(a, cb) {
+      // DO API action
+      // switch(a.name) {
+      //   case 'twitter': 
+      // }
+      cb();
+    });
     var key = 'device_' + device.readKey;
     pusher.trigger(key, 'update', {
       "message": device.payload

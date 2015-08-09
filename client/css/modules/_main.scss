@@ -195,6 +195,12 @@ a { color:$var-white; }
 
 // create device
 
+.btn-sm {
+  font-size:14px;
+  padding:8px 10px;
+  margin-left:8px;
+}
+
 .device-form {
   display: block;
   float: left;
@@ -209,6 +215,12 @@ a { color:$var-white; }
     width: 392px;
     margin: 0 auto;
     padding: 1em;
+    label {
+      text-align: left;
+      float: left;
+      padding-left:4px;
+      padding-top:10px;
+    }
   }
   h1 {
     color:$alt-purple;
@@ -390,10 +402,19 @@ a { color:$var-white; }
     margin-top:2em;
   }
 }
-.dashboard-content {
-  margin-left:200px;
+.dashboard-wrapper {
+  margin-left:180px;
   .dashboard-header {
     background:$light-grey;
+    padding:2em 1em;
+    color:$var-purple;
+    text-align: center;
+  }
+  .dashboard-content {
+    padding:1em;
+    .featured-widgets {
+      background:none;
+    }
   }
 }
 

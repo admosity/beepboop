@@ -1,35 +1,41 @@
-div.sidebar
-  a(href="" ui-sref="dashboard")
-    img(src="assets/images/logo-sm.png", alt="" class="logo")
-  ul
-    li
-      h2 my devices
-        a(href="" class="add")
-          i(class="fa fa-plus-square") &nbsp; add
-      ul
-        li
-          a(href="#") 
-           i(class="fa fa-plug")
-            | &nbsp; bathroom
-        li
-          a(href="#") 
-           i(class="fa fa-plug")
-            | &nbsp; weather
-        li
-          a(href="#") 
-           i(class="fa fa-plug")
-            | &nbsp; shit
-            
-    li.separate
-      a(href="#" ui-sref="marketplace") 
-        i(class="fa fa-credit-card")
-         | &nbsp; marketplace
-    li
-      a(href="#" ui-sref="home") 
-        i(class="fa fa-sign-out")
-         | &nbsp; logout
+include ../partials/sidebar.jade
 
-div.dashboard-content
+div.dashboard-wrapper
   div.dashboard-header
     h1 dashboard
-    p tis the content bruh
+    p my widgets
+  div.dashboard-content
+    div.featured-widgets
+      div(class="widget column-4" style="background-image:url('assets/images/example.jpg')")
+        div.widget-inner
+          h1 widget name
+          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
+          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
+      div(class="widget column-4" style="background-image:url('assets/images/example.jpg')")
+        div.widget-inner
+          h1 widget name
+          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
+          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
+      div(class="widget column-4" style="background-image:url('assets/images/example.jpg')")
+        div.widget-inner
+          h1 widget name
+          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
+          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
+          
+      div(class="widget column-4" style="background-image:url('assets/images/example.jpg')")
+        div.widget-inner
+          h1 widget name
+          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
+          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
+          
+      div(class="widget column-4" style="background-image:url('assets/images/example.jpg')")
+        div.widget-inner
+          h1 widget name
+          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
+          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
+          
+      div(class="widget column-4" style="background-image:url('assets/images/example.jpg')")
+        div.widget-inner
+          h1 widget name
+          p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
+          a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget

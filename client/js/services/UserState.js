@@ -2,11 +2,11 @@
 var module = require('./module');
 
 module.service('UserState', function($state, $stateParams, $q, $rootScope, $http) {
-  
+
   var UserState = (function() {
     UserState.displayName = 'UserState';
     var prototype = UserState.prototype, constructor = UserState;
-  
+
     /**
      * Constructor
      * @param {UserState}
@@ -86,7 +86,6 @@ module.service('UserState', function($state, $stateParams, $q, $rootScope, $http
         });
 
     };
-
 
 
     return UserState;

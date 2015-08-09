@@ -500,7 +500,7 @@ p.info {
   position:fixed;
   left:0;
   height:100%;
-  width:180px;
+  width:220px;
   padding:1em;
   font-family:$lato;
   box-shadow:1px 1px 2px $var-purple;;
@@ -532,7 +532,7 @@ p.info {
     }
   }
   img.logo {
-    margin-left: 20px;
+    margin-left: 40px;
   }
   li.separate {
     margin-top:2em;
@@ -542,7 +542,7 @@ p.info {
   }
 }
 .dashboard-wrapper {
-  margin-left:180px;
+  margin-left:220px;
   .dashboard-header {
     background:$light-grey;
     padding:2em 1em;

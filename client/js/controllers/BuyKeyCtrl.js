@@ -1,5 +1,5 @@
 var module = require('./module');
-module.controller('BuyKeyCtrl', function($scope, User, $state, $http) {
+module.controller('BuyKeyCtrl', function($scope, $state, $http) {
   $http.get('/client_token').then(function(clientId) {
     
     braintree.setup(

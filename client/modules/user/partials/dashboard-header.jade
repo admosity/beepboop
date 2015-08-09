@@ -1,0 +1,14 @@
+div.dashboard-header.row
+  div.column-4
+    h1 {{UserState.devices.length}}
+    h2
+      i.fa.fa-plug &nbsp; devices
+  div.column-4
+    h1 1
+    h2
+      i.fa.fa-users &nbsp; public
+  div.column-4
+    h1 {{UserState.devices.length}}/10
+    h2
+      i.fa.fa-key &nbsp; api keys
+      a(href="#" ui-sref="buy-key" class="btn btn-sm btn-purple") Buy More

@@ -1,11 +1,11 @@
 include ../partials/sidebar.jade
 
 div.dashboard-wrapper
-  div.dashboard-header
-    h1 edit device
+  include ../partials/dashboard-header.jade
   div.dashboard-content
     div.device-form
       div.device-inner
+        h1 edit {{device.name}}
         form(ng-submit="updateDevice($event)")
           label device name
           input(type="text" placeholder="Bathroom Sensor" ng-model="device.name")
@@ -67,7 +67,6 @@ div.dashboard-wrapper
               div.column-4
                 label variable
                 input(type="text" placeholder="Var")
-          //- br
           //- label.center
           //-   input(type="checkbox" checked) 
           //-   | &nbsp; sell this widget

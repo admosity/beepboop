@@ -70,7 +70,7 @@ router.post('/', function(req, res){
   if(user && post.name){
     var writeKey = shortid.generate();
     var readKey = shortid.generate();
-
+//http://localhost:5000/api/devices/55c6a8d40270f9eb41d5a875/payload?write=%20VJBx_5ys&payload=123
     var device = new Device({
       owner: user,
       name: post.name,
@@ -78,6 +78,7 @@ router.post('/', function(req, res){
       readKey: readKey,
       base: true,
     });
+
     device.save(function(err){
       if(!err){
         res.ok(device);
@@ -94,7 +95,7 @@ router.post('/', function(req, res){
 // device facing endpoints
 ////////////////////////
 
-router.get('/:id/payload', function(req, res) {
+router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
   var query = req.query;
   var device = req.device;
   var sendBack = {};
@@ -103,7 +104,7 @@ router.get('/:id/payload', function(req, res) {
     device.payload = query.payload;
     needSave = true;
   }
-  console.log("123",device);
+  
   if(query.read && query.read == device.readKey) {
     var rtn = {
       payload: device.payload,
@@ -117,6 +118,10 @@ router.get('/:id/payload', function(req, res) {
     } else {
       return res.ok(action);
     }
+  }else if(needSave){
+    return device.save(function(err) {
+      return res.ok(action);
+    });
   }
 
   return res.error(400);

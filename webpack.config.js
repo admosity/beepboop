@@ -67,6 +67,7 @@ module.exports = {
     angular: 'angular',
     Pusher: 'Pusher',
     '$': 'jQuery',
+    braintree: 'braintree',
   },
 
   plugins: [

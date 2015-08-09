@@ -10,9 +10,8 @@ div.dashboard-wrapper
         br
         h2 $2.00
         br
-        form(ng-submit="buyKeys()")
-          input(type="text" ng-model="ccData.creditCard" placeholder="Credit Card Number")
-          input(type="text" ng-model="ccData.expirationDate" placeholder="Expiration Date")
+        form(method="post" action="/checkout")
+          div#payment-form
           input(type="submit" class="btn btn-purple block" value="Buy")
           
     div.buy-form.thanks

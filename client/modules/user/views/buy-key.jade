@@ -18,11 +18,12 @@ div.dashboard-wrapper
   div.dashboard-content
     div.buy-form
       div.buy-inner
-        h1 buy 10 more keys
-        p.info You can use a maximum of 10 keys at a time. Use this form to purchase another batch of 10 for only $2.00
+        h1 buy 10 more api keys
+        p.info You can use a maximum of 10 devices at a time. Use this form to purchase another batch of 10 for only $2.00
         br
         h2 $2.00
         br
-        form(ng-submit="")
-          input(type="text" placeholder="shit")
+        form(ng-submit="buyKeys()")
+          input(type="text" ng-model="ccData.creditCard" placeholder="Credit Card Number")
+          input(type="text" ng-model="ccData.expirationDate" placeholder="Expiration Date")
           input(type="submit" class="btn btn-purple block" value="Buy")

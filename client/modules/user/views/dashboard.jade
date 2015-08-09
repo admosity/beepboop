@@ -11,7 +11,7 @@ div.dashboard-wrapper
       h2 
         i.fa.fa-users &nbsp; public
     div.column-4
-      h1 10/10
+      h1 {{UserState.devices.length}}/{{UserState.maxKeys}}
       h2 
         i.fa.fa-key &nbsp; api keys
         a(href="#" ui-sref="buy-key" class="btn btn-sm btn-purple") Buy More

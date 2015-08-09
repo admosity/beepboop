@@ -45,7 +45,7 @@ module.exports = [
         // },
         content: {
           templateUrl: viewsPrefix + 'buy-key.html',
-          // controller: 'NewDeviceCtrl',
+          controller: 'BuyKeyCtrl',
         },
       }
     }

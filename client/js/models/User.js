@@ -42,6 +42,13 @@ module.service('User', function($http, UserState) {
       });
     };
 
+    User.buykeys = function(ccData) {
+      return $http.post(b + '/buykeys', ccData).then(function(data) {
+        console.log(data);
+        return data;
+      });
+    };
+
 
     return User;
   })();

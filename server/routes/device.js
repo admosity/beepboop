@@ -129,12 +129,11 @@ function generateResolved(payload, str) {
   return str;
 }
 
-function sendTwilio(api){
-  console.log("send twilio");
+function sendTwilio(api, payload){
   var client = require('twilio')(api.creds.sid, api.creds.authToken);
   //Send an SMS text message
-  client.sendMessage(api.details, function(err, responseData) {
-    console.log(err, responseData);
+  var body = generateResolved(payload, api.details.body);
+  client.sendMessage({to: api.details.to, from: api.details.from, body: body}, function(err, responseData) {
   });
 }
 
@@ -149,7 +148,7 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
       // DO API action
       switch(a.name) {
         case 'twilio':
-          sendTwilio(a); 
+          sendTwilio(a, device.payload); 
       }
       cb();
     });

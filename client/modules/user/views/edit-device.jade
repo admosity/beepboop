@@ -36,7 +36,7 @@ div.dashboard-wrapper
             div(ng-repeat="a in device.API" ng-switch="a.name")
               {{a|json}}
               div.api-item(ng-switch-when="twilio")
-                h2 twilio
+                h2 Twilio
                   a(href="" ng-click="removeApi($index)")
                     i.fa.fa-minus-circle
                 label SID
@@ -50,7 +50,7 @@ div.dashboard-wrapper
                 label message
                 textarea(placeholder="Message" ng-model="a.details.body")
               div.api-item(ng-switch-when="twitter")
-                h2 twitter
+                h2 Twitter
                   a(href="" ng-click="removeApi($index)")
                     i.fa.fa-minus-circle
                 label message
@@ -65,11 +65,11 @@ div.dashboard-wrapper
                 label API Key
                 input(type="text" placeholder="API Key" ng-model="a.creds.key")
                 label To
-                input(type="text" placeholder="Send Email To" ng-model="a.creds.authToken")
+                input(type="text" placeholder="Send Email To" ng-model="a.details.to")
                 label From
                 input(type="text" placeholder="Send Email From" ng-model="a.details.from")
                 label Subject
-                input(type="text" placeholder="Subject" ng-model="a.details.to")
+                input(type="text" placeholder="Subject" ng-model="a.details.subject")
                 label Body
                 textarea(placeholder="Message" ng-model="a.details.body")
             

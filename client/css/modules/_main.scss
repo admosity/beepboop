@@ -316,6 +316,9 @@ p.info {
 .add-filter {
   color:$var-purple;
   margin-left:5px;
+  &.lrg {
+    font-size:38px;
+  }
   &:hover {
     color:$lighter-purple;
   }

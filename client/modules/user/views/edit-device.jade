@@ -19,15 +19,18 @@ div.dashboard-wrapper
           input(type="text" placeholder="Callback URL")
           div.api
             h2 APIs
-              a(href="" class="add-filter") 
-                i.fa.fa-plus-circle
             br
             p.info connect APIs with your device
             br
-            select(name="")
-              option(value="") Twilio
-              option(value="") Twitter
-              option(value="") Venmo
+            div.column-10
+              select(name="")
+                option(value="") Twilio
+                option(value="") Twitter
+                option(value="") Venmo
+            div.column-1
+              a(href="" class="add-filter lrg") 
+                i.fa.fa-plus-circle
+            
             br
             div.api-item
               h2 twitter

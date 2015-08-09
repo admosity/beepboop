@@ -1,10 +1,13 @@
 include ../partials/sidebar.jade
 
-div.dashboard-content
-  div.device-form
-    div.device-inner
-      h1 connect new device
-      form(action="")
-        input(type="text" placeholder="Device Name")
-        textarea(placeholder="Default Template")
-        input(type="submit" class="btn btn-purple" value="Connect")
+div.dashboard-wrapper
+  div.dashboard-header
+    h1 dashboard
+  div.dashboard-content
+    div.device-form
+      div.device-inner
+        h1 connect new device
+        form(action="")
+          input(type="text" placeholder="Device Name")
+          textarea(placeholder="Default Template")
+          input(type="submit" class="btn btn-purple" value="Connect")

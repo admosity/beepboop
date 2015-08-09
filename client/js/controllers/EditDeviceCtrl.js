@@ -1,7 +1,7 @@
 var module = require('./module');
 module.controller('EditDeviceCtrl', function($scope, Device, UserState, $mdDialog, $mdToast, $animate) {
 
-  var pusher = new Pusher('e5e0a876b1c4b665adc6');
+
   
   Device.loadDevices()
     .then(function() {

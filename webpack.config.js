@@ -65,6 +65,7 @@ module.exports = {
 
   externals: {
     angular: 'angular',
+    Pusher: 'Pusher',
     '$': 'jQuery',
   },
 

@@ -1,44 +1,29 @@
-/*
-  Web client
-
- This sketch connects to a website 
- using Wi-Fi functionality on MediaTek LinkIt platform.
-
- Change the macro WIFI_AP, WIFI_PASSWORD, WIFI_AUTH and SITE_URL accordingly.
-
- created 13 July 2010
- by dlf (Metodo2 srl)
- modified 31 May 2012
- by Tom Igoe
- modified 20 Aug 2014
- by MediaTek Inc.
- */
-
 #include <LTask.h>
 #include <LWiFi.h>
 #include <LWiFiClient.h>
 
-#define WIFI_AP "AlleyNYC"
-#define WIFI_PASSWORD "AxeTrophy"
-#define WIFI_AUTH LWIFI_WPA  // choose from LWIFI_OPEN, LWIFI_WPA, or LWIFI_WEP.
-#define SITE_URL "www.stormgate.org"
+#define WIFI_AP "chocolatethunder"
+#define WIFI_PASSWORD "11111111"
+#define WIFI_AUTH LWIFI_WEP  // choose from LWIFI_OPEN, LWIFI_WPA, or LWIFI_WEP.
+
+#define SITE_URL "beepboop.herokuapp.com"
+#define DEVICE_ID "1"
+#define WRITEKEY "2"
+#define READKEY "3"
 
 LWiFiClient c;
 
-void setup()
-{
-  LWiFi.begin();
-  Serial.begin(115200);
+const int buttonPin = 2;
+const int ledPin = 13;
 
-  // keep retrying until connected to AP
-  Serial.println("Connecting to AP");
-  while (0 == LWiFi.connect(WIFI_AP, LWiFiLoginInfo(WIFI_AUTH, WIFI_PASSWORD)))
-  {
-    delay(1000);
-  }
+int buttonState = LOW;
+int lastButtonState = LOW;
+long lastDebounceTime = 0;
+long debounceDelay = 50;
 
+void sendUpdate(int status){
   // keep retrying until connected to website
-  Serial.println("Connecting to WebSite");
+  Serial.println("Connecting to BeepBoop");
   while (0 == c.connect(SITE_URL, 80))
   {
     Serial.println("Re-Connecting to WebSite");
@@ -47,7 +32,10 @@ void setup()
 
   // send HTTP request, ends with 2 CR/LF
   Serial.println("send HTTP GET request");
-  c.println("GET / HTTP/1.1");
+  //:id/payload?write=key&read=key&payload=whatever`
+  c.print("GET /api/devices/" DEVICE_ID "/payload?write=" WRITEKEY "&payload=");
+  c.print(status);
+  c.println(" HTTP/1.1");
   c.println("Host: " SITE_URL);
   c.println("Connection: close");
   c.println();
@@ -58,12 +46,7 @@ void setup()
   {
     delay(100);
   }
-}
 
-boolean disconnectedMsg = false;
-
-void loop()
-{
   // Make sure we are connected, and dump the response content to Serial
   while (c)
   {
@@ -82,12 +65,49 @@ void loop()
       }
     }
   }
+}
 
-  if (!disconnectedMsg)
+void setup()
+{
+  LWiFi.begin();
+  Serial.begin(115200);
+
+  // keep retrying until connected to AP
+  Serial.println("Connecting to AP");
+  pinMode(ledPin, OUTPUT); 
+  pinMode(buttonPin, INPUT);
+
+  digitalWrite(ledPin, HIGH);
+  while (0 == LWiFi.connect(WIFI_AP, LWiFiLoginInfo(WIFI_AUTH, WIFI_PASSWORD)))
   {
-    Serial.println("disconnected by server");
-    disconnectedMsg = true;
+    delay(1000);
   }
-  delay(500);
+   
+  digitalWrite(ledPin, LOW);
+}
+
+void buttonAction(){
+  Serial.println("PRESS DAT SHIT");
+  //sendUpdate(1);
+}
+
+void loop()
+{
+  int reading = digitalRead(buttonPin);
+  if (reading != lastButtonState) {
+    lastDebounceTime = millis();
+  } 
+  
+  if ((millis() - lastDebounceTime) > debounceDelay) {
+    if (reading != buttonState) {
+      buttonState = reading;
+
+      if (buttonState == HIGH) {
+        buttonAction();
+      }
+    }
+  }
+  
+  lastButtonState = reading;
 }
 

@@ -2,9 +2,9 @@ wifi.setmode(wifi.STATION)
 wifi.sta.config("chocolatethunder","11111111")
 ip = wifi.sta.getip()
 
-deviceId = "55c6af1b2d82c1030022dc1b"
+deviceId = "55c74ef6d69133030095e348"
 readKey = "V1l2V05yj"
-writeKey = "VyhEAq1i"
+writeKey = "4yPMAExs"
 
 toggle = 1
 connected = 0

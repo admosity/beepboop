@@ -1,5 +1,5 @@
 var module = require('./module');
-module.controller('DashboardCtrl', function($scope, Device) {
+module.controller('DashboardCtrl', function($scope, Device, $mdToast) {
   var pusher = new Pusher('e5e0a876b1c4b665adc6');
   
   Device.loadDevices()
@@ -11,9 +11,25 @@ module.controller('DashboardCtrl', function($scope, Device) {
       var channel = pusher.subscribe(key);
       channels.push(channel);
       var updatePusher = function(data) {
-        angular.copy(data.message, device.payload);
+        if(data.message){
+          angular.copy(data.message, device.payload);
+          $mdToast.show(
+            $mdToast.simple()
+            .content(data.message)
+            .position('top right')
+            .hideDelay(5000)
+          );
+        }
+        if(data.error){
+          $mdToast.show(
+            $mdToast.simple()
+            .content(data.error)
+            .position('top right')
+            .hideDelay(5000)
+          );
+        }
         // device.payload = data.message;
-        console.log(device.payload);
+        console.log(data);
         if(!$scope.$$phase) $scope.$apply();
       };
       pushers.push(updatePusher);

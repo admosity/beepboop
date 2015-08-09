@@ -505,7 +505,6 @@ p.info {
   width:220px;
   padding:1em;
   font-family:$lato;
-  box-shadow:1px 1px 2px $var-purple;;
   @extend %list-reset;
   a {
     @include transition-all(0.5s);

@@ -129,6 +129,12 @@ function generateResolved(payload, str) {
   return str;
 }
 
+function sendTwilio(api){
+  var client = require('twilio')(api.creds.sid, api.creds.authToken);
+  //Send an SMS text message
+  client.sendMessage(api.details, function(err, responseData) {
+  });
+}
 
 router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
   var query = req.query;
@@ -139,15 +145,17 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
     device.payload = query.payload;
     async.each(device.API, function(a, cb) {
       // DO API action
-      // switch(a.name) {
-      //   case 'twitter': 
-      // }
+      switch(a.name) {
+        case 'twilio':
+          sendTwilio(a); 
+      }
       cb();
     });
     var key = 'device_' + device.readKey;
     pusher.trigger(key, 'update', {
       "message": device.payload
     });
+
     needSave = true;
   }
   

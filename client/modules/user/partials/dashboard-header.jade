@@ -11,7 +11,9 @@ div.dashboard-header.row
     h1 {{UserState.devices.length}}/{{maxKeys}}
     h2
       i.fa.fa-key &nbsp; api keys
-
+//- 
+//- - var devices = {{UserState.devices.length}}
+//- if devices >= 10
 div.column-12.alert
   p.info You have used a maximum of 10 devices at once. You can purchase another 10 for just $2.00.
     md-button(class="md-raised md-warn btn" ui-sref="buy-key") Buy More

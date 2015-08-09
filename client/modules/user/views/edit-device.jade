@@ -82,10 +82,11 @@ div.dashboard-wrapper
                 label variable
                 input(type="text" placeholder="Var")
           label.center
-            input(type="checkbox" checked) 
+            input(type="checkbox" checked ng-model="checked") 
             | &nbsp; public?
-          label.clear add description
-          input(type="text" placeholder="Description")
+          div(ng-hide="!checked")
+            label.clear add description
+            input(type="text" placeholder="Description")
           
           input(type="submit" class="btn btn-purple" value="Save")
           

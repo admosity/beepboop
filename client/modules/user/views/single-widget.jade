@@ -1,0 +1,5 @@
+div.widget-inner
+
+  h1 {{d.name}}
+  md-content
+    inject-d(ng-init="payload = device.payload; d=device;" d="d" ng-if="device")

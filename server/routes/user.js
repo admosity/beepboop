@@ -10,8 +10,11 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
 router.post('/signup', function(req, res) {
   return User.createUser(req.body.username, req.body.password, function(err, user) {
     if(err) return res.error(500);
-    return res.ok(true);
-  })
+    return req.login(user, function(err) {
+      if(err) return res.error(500);
+      return res.ok(true);
+    });
+  });
 });
 
 module.exports = router;

@@ -1,35 +1,43 @@
 include ../partials/sidebar.jade
 
-div.dashboard-content
-  div.device-form
-    div.device-inner
-      h1 edit device
-        a(href="" class="btn btn-sm btn-purple" ui-sref="edit-widget") edit widget
-      form(action="")
-        label device name
-        input(type="text" placeholder="Bathroom Sensor")
-        label device key
-        input(type="text" placeholder="Device Key")
-        label endpoint URL
-        input(type="text" placeholder="Endpoint URL")
-        label callback URL
-        input(type="text" placeholder="Callback URL")
-        
-        h2 edit filters
-        p create conditions for your widget to function
-        p if
-        label variable
-        input(type="text" placeholder="Var")
-        p is
-        select(name="")
-          option >
-          option <
-          option >=
-          option <=
-          option =
-        label variable
-        input(type="text" placeholder="Var")
-        label.center
-          input(type="checkbox") sell this widget
-        a(href="#")
-        input(type="submit" class="btn btn-purple" value="Save")
+div.dashboard-wrapper
+  div.dashboard-header
+    h1 dashboard
+  div.dashboard-content
+    div.device-form
+      div.device-inner
+        h1 edit device
+          a(href="" class="btn btn-sm btn-purple" ui-sref="edit-widget") edit widget
+        form(action="")
+          label device name
+          input(type="text" placeholder="Bathroom Sensor")
+          label device key
+          input(type="text" placeholder="Device Key")
+          label endpoint URL
+          input(type="text" placeholder="Endpoint URL")
+          label callback URL
+          input(type="text" placeholder="Callback URL")
+          
+          h2 filters
+            a(href="" class="btn btn-purple btn-sm") Add Filter
+          br
+          p.info create conditions for your widget to function. example: if LIGHT = ON
+          label variable
+          input(type="text" placeholder="Var")
+          select(name="")
+            option >
+            option <
+            option >=
+            option <=
+            option =
+          label variable
+          input(type="text" placeholder="Var")
+          br
+          label.center
+            input(type="checkbox" checked) 
+            | &nbsp; sell this widget
+          label Venmo Username
+          input(type="text" placeholder="Venmo Username")
+          br
+          p.info Please enter your Venmo username in order to accept payments on the BeepBoop Marketplace.
+          input(type="submit" class="btn btn-purple" value="Save")

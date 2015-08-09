@@ -201,19 +201,24 @@ a { color:$var-white; }
   margin-left:8px;
 }
 
+p.info {
+  background:$light-grey;
+  padding:1em;
+}
+
 .device-form {
   display: block;
   float: left;
   clear: both;
   width:100%;
   text-align: center;
-  margin: 100px auto 0;
+  margin: 30px auto 0;
   .device-inner {
     background-color: rgba(255, 255, 255, 0.84);
     border-radius:2px;
     border:1px solid $var-purple;
-    width: 392px;
-    margin: 0 auto;
+    width: 600px;
+    margin: 0 auto 50px;
     padding: 1em;
     label {
       text-align: left;
@@ -226,6 +231,11 @@ a { color:$var-white; }
     color:$alt-purple;
     font-family:$lato;
     margin-bottom:1em;
+  }
+  h2 {
+    color:$alt-purple;
+    font-family:$lato;
+    margin-top:1em;
   }
   form {
     margin:0 auto;

@@ -36,36 +36,6 @@ module.exports = [
     }
   },
   {
-    name: 'dashboard',
-    state: {
-      url: '/dashboard',
-      views: {
-        // sidebar: {
-        //   templateUrl: partialsPrefix + 'sidebar.html',
-        // },
-        content: {
-          templateUrl: viewsPrefix + 'dashboard.html',
-          // controller: 'SplashCtrl',
-        },
-      }
-    }
-  },
-  {
-    name: 'new-device',
-    state: {
-      url: '/new-device',
-      views: {
-        // sidebar: {
-        //   templateUrl: partialsPrefix + 'sidebar.html',
-        // },
-        content: {
-          templateUrl: viewsPrefix + 'new-device.html',
-          // controller: 'SplashCtrl',
-        },
-      }
-    }
-  },
-  {
     name: 'login',
     state: {
       url: '/login',

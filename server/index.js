@@ -128,7 +128,7 @@ app.post('/checkout', function(req, res) {
         // util.log('Transaction ID: ' + result.transaction.id);
         req.user.maxKeys += 10;
         req.user.save(function(err){
-          res.redirect('/thank-you');
+          res.redirect('/buy-thanks');
         });
       } else {
         res.error(500, result.message);

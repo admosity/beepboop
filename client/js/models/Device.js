@@ -15,7 +15,7 @@ module.service('Device', function($http, UserState, $q, $compile, $sce) {
           this.endpointUrl = window.location.protocol + '//' + window.location.hostname + '/api/devices/' + _device._id + '/payload?read=' + this[k];
         }
       }
-      
+
       // if(!(_device instanceof Device)) {
       //   this.template = $sce.trustAsHtml(this.template);
       // }
@@ -54,6 +54,15 @@ module.service('Device', function($http, UserState, $q, $compile, $sce) {
       return $http.post(b + this._id, this)
         .then(function(data) {
           return data.data;
+        });
+    };
+
+    prototype.remove = function() {
+      var self = this;
+      return $http.delete(b + this._id)
+        .then(function() {
+          UserState.removeDevice(self);
+          return self;
         });
     };
 

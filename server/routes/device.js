@@ -47,6 +47,17 @@ router.get('/', function(req, res){
 
 router
   .route('/:id')
+  .delete(loadDeviceMiddleware, function(req, res) {
+    console.log(req.user._id);
+    console.log(req.device.owner);
+    if(req.user._id.toString() == req.device.owner.toString()) {
+      req.device.remove(function(err, product) {
+        return res.ok();
+      });
+    } else {
+      return res.error(403);
+    }
+  })
   .get(loadDeviceMiddleware, function(req, res) {
     var id = req.params.id;
     return Device.findOne({_id: id, owner: req.user }, function(err, device) {

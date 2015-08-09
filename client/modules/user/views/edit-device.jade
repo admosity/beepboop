@@ -34,6 +34,7 @@ div.dashboard-wrapper
                 i.fa.fa-plus-circle
 
             div(ng-repeat="a in device.API" ng-switch="a.name")
+              {{a|json}}
               div.api-item(ng-switch-when="twilio")
                 h2 Twilio
                   a(href="" ng-click="removeApi($index)")

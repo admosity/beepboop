@@ -155,7 +155,7 @@ a { color:$var-white; }
 .bottom-info-bit {
   text-align: center;
   background:$var-white;
-  padding:2em 0;
+  padding:5em 0;
   float:left;
   width:100%;
   [class*='column-'] {
@@ -415,7 +415,7 @@ p.info {
 }
 
 .login-wrapper {
-  background-color: rgba(255, 255, 255, 0.84);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius:2px;
   border:1px solid $var-purple;
   margin: 200px auto 100px;

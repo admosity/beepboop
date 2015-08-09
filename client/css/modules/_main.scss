@@ -245,6 +245,8 @@ p.info {
       text-transform: lowercase;
       padding-left:4px;
       padding-top:10px;
+      color:$alt-purple;
+      font-weight:500;
     }
   }
   h1 {
@@ -566,12 +568,14 @@ p.info {
       color:$var-purple;
       p {
         color:$var-purple;
+        background:none;
       }
       &:hover {
         background:$lighter-purple;
         color:$var-white;
         border:1px solid $var-purple;
-        p {
+        p, .md-default-theme {
+          background:none;
           color:$var-white;
         }
       }

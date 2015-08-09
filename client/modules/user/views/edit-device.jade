@@ -30,10 +30,15 @@ div.dashboard-wrapper
                 i.fa.fa-plus-circle
 
             div(ng-repeat="a in device.API" ng-switch="a.name")
-              {{a | json}}
               div.column-10(ng-switch-when="twilio")
-                label phone number
-                input(type="text" placeholder="Send Text To" ng-model="a.to")
+                label SID
+                input(type="text" placeholder="SID" ng-model="a.creds.sid")
+                label Auth token
+                input(type="text" placeholder="Auth token" ng-model="a.creds.authToken")
+                label phone number from
+                input(type="tel" placeholder="Send Text From" ng-model="a.details.from")
+                label phone number to
+                input(type="tel" placeholder="Send Text To" ng-model="a.details.to")
                 label message
                 textarea(placeholder="Message" ng-model="a.details.message")
               div.column-10(ng-switch-when="twitter")

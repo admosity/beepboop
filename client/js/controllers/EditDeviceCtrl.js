@@ -36,6 +36,9 @@ module.controller('EditDeviceCtrl', function($scope, Device, UserState, $mdDialo
       details: {
 
       },
+      creds: {
+
+      },
       name: api,
     });
   };

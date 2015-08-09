@@ -28,6 +28,13 @@ module.service('User', function($http, UserState) {
       });
     };
 
+    prototype.logout = function() {
+      return $http.post(b + '/logout', {})
+        .finally(UserState.reset);
+    };
+
+    User.logout = prototype.logout;
+
     User.signup = function(signupData) {
       return $http.post(b + '/signup', signupData).then(function(data) {
         UserState.user = new User(data.data);

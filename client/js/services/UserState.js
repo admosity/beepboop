@@ -1,7 +1,7 @@
 
 var module = require('./module');
 
-module.service('UserState', function($state) {
+module.service('UserState', function($state, $stateParams, $q, $rootScope) {
   
   var UserState = (function() {
     UserState.displayName = 'UserState';
@@ -28,9 +28,43 @@ module.service('UserState', function($state) {
       }
     });
 
+    prototype.copyOverDevice = function(device) {
+      var found = this.devices.map(function(d) {
+        return d._id;
+      }).indexOf(device._id);
+
+      if(found > -1) {
+        this.devices[found] = device;
+      }
+    }
+
+    prototype.getDevice = function() {
+      return this.devices.filter(function(d) {
+          return d._id == $stateParams.id;
+        })[0];
+    };
+
+    prototype.editDevice = function(device) {
+      $state.go('edit-device', {id: device._id});
+    }
 
     prototype.addNewDevice = function(device) {
       this.devices.push(device);
+    };
+
+    prototype.reset = function() {
+      this.devices = [];
+      this._user = null;
+      this.devicesLoaded = false;
+    };
+
+    prototype.logout = function() {
+      var self = this;
+      this._user.logout()
+        .finally(function() {
+          $state.go('home');
+        });
+
     };
 
 
@@ -38,6 +72,21 @@ module.service('UserState', function($state) {
     return UserState;
   })();
 
+
+  var _userState = new UserState();
+
+
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+    var toName = toState.name;
+
+    // switch(toName) {
+    //   case 'edit-device':
+    //     UserState.device = UserState.devices.filter(function(d) {
+    //       return d._id == toParams.id;
+    //     })[0];
+    //     break;
+    // }
+  });
 
   return new UserState();
 

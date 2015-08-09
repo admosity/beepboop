@@ -8,13 +8,13 @@ div.dashboard-wrapper
       div.device-inner
         h1 edit device
           a(href="" class="btn btn-sm btn-purple" ui-sref="edit-widget") edit widget
-        form(action="")
+        form(ng-submit="updateDevice($event)")
           label device name
-          input(type="text" placeholder="Bathroom Sensor")
+          input(type="text" placeholder="Bathroom Sensor" ng-model="device.name")
           label device key
-          input(type="text" placeholder="Device Key")
+          input(type="text" placeholder="Device Key" disabled ng-model="device._id")
           label endpoint URL
-          input(type="text" placeholder="Endpoint URL")
+          input(type="text" placeholder="Endpoint URL" disabled ng-model="device.endpointUrl")
           label callback URL
           input(type="text" placeholder="Callback URL")
           div.api

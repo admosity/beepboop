@@ -17,4 +17,10 @@ router.post('/signup', function(req, res) {
   });
 });
 
+router.post('/logout', function(req, res) {
+  if(!req.user) return res.ok();
+  req.logout();
+  return res.ok();
+});
+
 module.exports = router;

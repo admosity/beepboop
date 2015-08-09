@@ -32,7 +32,7 @@ module.exports = {
     path: path.join(__dirname, 'build/public/js')
   },
   // create source maps
-  // devtool: 'source-map',
+  devtool: 'source-map',
 
   module: {
     loaders: [

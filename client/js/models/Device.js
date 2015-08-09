@@ -1,5 +1,5 @@
 var module = require('./module');
-module.service('Device', function($http, UserState) {
+module.service('Device', function($http, UserState, $q) {
   var Device = (function() {
     Device.displayName = 'Device';
     var prototype = Device.prototype, constructor = Device;
@@ -11,6 +11,9 @@ module.service('Device', function($http, UserState) {
     function Device(_device) {
       for(var k in _device) {
         this[k] = _device[k];
+        if(k == 'readKey') {
+          this.endpointUrl = window.location.protocol + '//' + window.location.hostname + '/api/devices/' + _device._id + '/payload?read=' + this[k];
+        }
       }
     }
 
@@ -24,6 +27,32 @@ module.service('Device', function($http, UserState) {
           return device;
         });
     };
+
+    Device.loadDevices = function() {
+      if(UserState.devicesLoaded) return $q.when(UserState.devices);
+      UserState.devicesLoaded = true;
+      return $http.get(b)
+        .then(function(data) {
+          var devices = data.data;
+          devices = devices.map(function(d) {
+            var rtn = new Device(d);
+            UserState.addNewDevice(rtn);
+            return rtn;
+          });
+          return devices;
+        })
+        .catch(function() {
+          UserState.devicesLoaded = false;
+        });
+    };
+
+    prototype.save = function() {
+      return $http.post(b + this._id, this)
+        .then(function(data) {
+          return data.data;
+        });
+    };
+
     return Device;
   })();
   return Device;

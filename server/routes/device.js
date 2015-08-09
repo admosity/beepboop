@@ -142,7 +142,17 @@ function sendTweet(api, payload){
 }
 
 function sendSendGrid(api, payload){
-  
+  var sendgrid  = require('sendgrid')(api.creds.key);
+  var subject = generateResolved(payload, api.details.subject);
+  var body = generateResolved(payload, api.details.body);
+  sendgrid.send({
+    to:       api.details.to,
+    from:     api.details.from,
+    subject:  subject,
+    text:     body
+  }, function(err, json) {
+    console.log(err, json);
+  });
 }
 
 router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {

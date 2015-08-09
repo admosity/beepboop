@@ -11,6 +11,9 @@ module.service('Device', function($http, UserState, $q) {
     function Device(_device) {
       for(var k in _device) {
         this[k] = _device[k];
+        if(k == 'readKey') {
+          this.endpointUrl = window.location.protocol + '//' + window.location.hostname + '/api/devices/' + _device._id + '/payload?read=' + this[k];
+        }
       }
     }
 

@@ -78,22 +78,30 @@ router.post('/', function(req, res){
   var user = req.user;
   var post = req.body;
   if(user && post.name){
-    var writeKey = shortid.generate();
-    var readKey = shortid.generate();
-//http://localhost:5000/api/devices/55c6a8d40270f9eb41d5a875/payload?write=%20VJBx_5ys&payload=123
-    var device = new Device({
-      owner: user,
-      name: post.name,
-      writeKey: writeKey,
-      readKey: readKey,
-      base: true,
-    });
+    var deviceCount = 0;
+    Device.find({owner: req.user }, function(err, devices){
+      var deviceCount = devices? devices.length: 0;
+      if(deviceCount < user.maxKeys){
+        var writeKey = shortid.generate();
+        var readKey = shortid.generate();
+    //http://localhost:5000/api/devices/55c6a8d40270f9eb41d5a875/payload?write=%20VJBx_5ys&payload=123
+        var device = new Device({
+          owner: user,
+          name: post.name,
+          writeKey: writeKey,
+          readKey: readKey,
+          base: true,
+        });
 
-    device.save(function(err){
-      if(!err){
-        res.ok(device);
+        device.save(function(err){
+          if(!err){
+            res.ok(device);
+          }else{
+            res.error(401, "Failed to create device");
+          }
+        });
       }else{
-        res.error(401, "Failed to create device");
+        res.error(401, "Too many devices");
       }
     });
   }else{

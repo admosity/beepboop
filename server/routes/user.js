@@ -4,7 +4,7 @@ var User = mongoose.model('User');
 var passport = require('passport');
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
-  return res.ok(user);
+  return res.ok(req.user);
 });
 
 router.post('/signup', function(req, res) {

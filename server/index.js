@@ -89,6 +89,8 @@ app.use(passport.session());
 // Load models
 require('./models');
 
+// Init auth
+require('./auth');
 // Load routes
 require('./routes')(app);
 

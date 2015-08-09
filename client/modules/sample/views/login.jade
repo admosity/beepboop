@@ -4,7 +4,7 @@ div.outer-wrapper
     div.login-form
       div.login-inner
         h1 sign in
-        form(ng-submit="login()")
+        form(ng-submit="login($event)")
           input(type="email" placeholder="Email Address" ng-model="loginForm.username")
           input(type="password" placeholder="Password" ng-model="loginForm.password")
           input(type="submit" class="btn btn-purple" value="Sign In")
@@ -16,7 +16,7 @@ div.outer-wrapper
     div.register
       div.register-inner
         h1 register
-        form(ng-submit="signup()")
+        form(ng-submit="signup($event)")
           input(type="email" placeholder="Email Address" ng-model="signupForm.username")
           input(type="password" placeholder="Password" ng-model="signupForm.password")
           input(type="submit" class="btn btn-purple" value="Register")

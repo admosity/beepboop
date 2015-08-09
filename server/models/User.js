@@ -40,11 +40,13 @@ UserSchema.statics.createUser = function(username, password, callback) {
 ////////////////////////
 
 UserSchema.methods.validPassword = function(password, callback) {
+
+  var self = this;
   bcrypt.compare(password, this.password, function(err, res) {
     if(res) {
-      callback(null, this);
+      callback(null, self);
     } else {
-      callback(true, this);
+      callback(true, self);
     }
   });
 };

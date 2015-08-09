@@ -50,7 +50,7 @@ router
     var user = req.user;
     var id = req.params.id;
     var post = req.body;
-    if(user && id && post.device){
+    if(user && id){
       // update the device 
       Device.findOne({_id: id, owner: req.user }, function(err, device){
         device.updateDevice(post);

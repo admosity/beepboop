@@ -7,3 +7,4 @@ require('./module');
  require('./LoginCtrl');
  require('./NewDeviceCtrl');
  require('./DashboardCtrl');
+ require('./EditDeviceCtrl');

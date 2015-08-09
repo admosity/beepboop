@@ -1,6 +1,6 @@
 div.sidebar
   a(href="" ui-sref="dashboard")
-    img(src="assets/images/logo-sm.png", alt="" class="logo")
+    img(src="/assets/images/logo-sm.png" alt="" class="logo")
   ul
     li
       h2 my devices
@@ -8,7 +8,7 @@ div.sidebar
           i(class="fa fa-plus-square") &nbsp; add
       ul
         li(ng-repeat="d in UserState.devices")
-          a(href="#" ui-sref="edit-device" )
+          a(href="#" ng-click="UserState.editDevice(d)")
            i(class="fa fa-plug")
             | &nbsp; {{d.name}}
 

@@ -38,14 +38,14 @@ module.exports = [
   {
     name: 'edit-device',
     state: {
-      url: '/edit-device',
+      url: '/edit-device/:id',
       views: {
         // sidebar: {
         //   templateUrl: partialsPrefix + 'sidebar.html',
         // },
         content: {
           templateUrl: viewsPrefix + 'edit-device.html',
-          // controller: 'LoginCtrl',
+          controller: 'EditDeviceCtrl'
         },
       }
     }

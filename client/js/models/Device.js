@@ -42,6 +42,14 @@ module.service('Device', function($http, UserState, $q) {
           UserState.devicesLoaded = false;
         });
     };
+
+    prototype.save = function() {
+      return $http.post(b + this._id, this)
+        .then(function(data) {
+          return data.data;
+        });
+    };
+
     return Device;
   })();
   return Device;

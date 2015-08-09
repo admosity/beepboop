@@ -566,12 +566,14 @@ p.info {
       color:$var-purple;
       p {
         color:$var-purple;
+        background:none;
       }
       &:hover {
         background:$lighter-purple;
         color:$var-white;
         border:1px solid $var-purple;
-        p {
+        p, .md-default-theme {
+          background:none;
           color:$var-white;
         }
       }

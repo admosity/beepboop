@@ -50,6 +50,14 @@ $btn-colors: (
     clear:both;
     width:100%;
   }
+  &.btn-remove {
+    color: $alt-purple;
+    background: $var-white;
+    &:hover {
+      background: $var-red;
+      color:$var-white;
+    }
+  }
   &.btn-white {
     color: $var-black;
     &:hover {

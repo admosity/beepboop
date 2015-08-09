@@ -8,7 +8,6 @@ writeKey = "4yPMAExs"
 
 toggle = 1
 connected = 0
-count = 0
 
 tmr.alarm(0, 1000, 1, function()
     if connected == 0 then
@@ -19,13 +18,6 @@ tmr.alarm(0, 1000, 1, function()
             gpio.write(2, gpio.HIGH)
             toggle = 1
         end
-    else
-        --Update sensor stuff
-        if count % 10 == 0 then
-            sendNetwork(count)
-            -- count = 0
-        end
-        count = count + 1
     end
 
     status = wifi.sta.status()
@@ -47,6 +39,7 @@ tmr.alarm(0, 1000, 1, function()
 end)
 
 function sendNetwork(status)
+    gpio.write(2, gpio.HIGH)
     print("Update host")
     conn=net.createConnection(net.TCP, 0)
     

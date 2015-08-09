@@ -17,30 +17,49 @@ div.dashboard-wrapper
           input(type="text" placeholder="Endpoint URL")
           label callback URL
           input(type="text" placeholder="Callback URL")
-          
-          h2 filters
-            a(href="" class="add-filter") 
-              i.fa.fa-plus-circle
-          br
-          p.info create conditions for your widget to function. example: if LIGHT = ON
-          div.filter-item
-            h2 filter 1
-              a(href="")
-                i.fa.fa-minus-circle
-            div.column-4
-              label variable
-              input(type="text" placeholder="Var")
-            div.column-4
-              label operator
-              select(name="")
-                option >
-                option <
-                option >=
-                option <=
-                option =
-            div.column-4
-              label variable
-              input(type="text" placeholder="Var")
+          div.api
+            h2 APIs
+              a(href="" class="add-filter") 
+                i.fa.fa-plus-circle
+            br
+            p.info connect APIs with your device
+            br
+            select(name="")
+              option(value="") Twilio
+              option(value="") Twitter
+              option(value="") Venmo
+            br
+            div.api-item
+              h2 twitter
+                a(href="")
+                  i.fa.fa-minus-circle
+              label api key
+              input(type="text" placeholder="918237192837129873")
+            br
+          div.filters
+            h2 filters
+              a(href="" class="add-filter") 
+                i.fa.fa-plus-circle
+            br
+            p.info create conditions for your widget to function. example: if LIGHT = ON
+            div.filter-item
+              h2 filter 1
+                a(href="")
+                  i.fa.fa-minus-circle
+              div.column-4
+                label variable
+                input(type="text" placeholder="Var")
+              div.column-4
+                label operator
+                select(name="")
+                  option >
+                  option <
+                  option >=
+                  option <=
+                  option =
+              div.column-4
+                label variable
+                input(type="text" placeholder="Var")
           br
           label.center
             input(type="checkbox" checked) 

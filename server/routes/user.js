@@ -23,4 +23,9 @@ router.post('/logout', function(req, res) {
   return res.ok();
 });
 
+router.get('/keys', function(req, res) {
+  if(!req.user) return res.ok(0);
+  return res.ok(req.user.maxKeys);
+});
+
 module.exports = router;

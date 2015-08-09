@@ -1,7 +1,7 @@
 
 var module = require('./module');
 
-module.service('UserState', function($state, $stateParams, $q, $rootScope) {
+module.service('UserState', function($state, $stateParams, $q, $rootScope, $http) {
   
   var UserState = (function() {
     UserState.displayName = 'UserState';
@@ -13,6 +13,10 @@ module.service('UserState', function($state, $stateParams, $q, $rootScope) {
      */
     function UserState() {
       this.devices = [];
+      $http.get("/api/users/keys")
+        .then(function(data) {
+          $rootScope.maxKeys = data.data;
+        });
     }
 
     Object.defineProperties(prototype, {

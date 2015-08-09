@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "async": "^1.4.1",
     "bcrypt": "^0.8.4",
     "body-parser": "^1.12.4",
     "braintree": "^1.27.0",

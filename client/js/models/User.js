@@ -1,7 +1,7 @@
 
 var module = require('./module');
 
-module.service('User', function($http, UserState) {
+module.service('User', function($http, UserState, $scope) {
   var User = (function() {
     User.displayName = 'User';
     var prototype = User.prototype, constructor = User;

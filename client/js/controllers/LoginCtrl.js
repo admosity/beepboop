@@ -20,14 +20,14 @@ module.controller('LoginCtrl', function($scope, $state, User, $mdDialog, $animat
   };
 
   $scope.signupForm = {};
-  $scope.signup = function() {
+  $scope.signup = function(ev) {
     User.signup($scope.signupForm)
       .catch(function() {
         $mdDialog.show(
               $mdDialog.alert()
                 .parent(angular.element(document.body))
                 .title('Could not sign up')
-                .content('Probably someone else signed up before you, or something really broke sorry.')
+                .content('Probably someone else signed up before you, or something really broke. Sorry :(.')
                 .ok('Alrighty I\'ll try again')
                 .targetEvent(ev)
             );

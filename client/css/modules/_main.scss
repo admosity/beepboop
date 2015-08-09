@@ -88,6 +88,12 @@ a { color:$var-white; }
       width:100%;
       position:absolute;
       padding:3em 1em;
+      a.btn {
+        position: absolute;
+        bottom: 10px;
+        left: 5%;
+        width: 90%;
+      }
       p {
         color:$var-white;
         margin:10px auto;
@@ -220,6 +226,10 @@ p.info {
     width: 600px;
     margin: 0 auto 50px;
     padding: 1em;
+    select {
+      background: $var-white;
+      width:100%;
+    }
     label {
       text-align: left;
       float: left;

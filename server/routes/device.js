@@ -67,7 +67,7 @@ router
 router.post('/', function(req, res){
   var user = req.user;
   var post = req.body;
-  if(user && post.device){
+  if(user && post.name){
     var writeKey = shortid.generate();
     var readKey = shortid.generate();
 
@@ -103,12 +103,13 @@ router.get('/:id/payload', function(req, res) {
     device.payload = query.payload;
     needSave = true;
   }
-
+  console.log("123",device);
   if(query.read && query.read == device.readKey) {
     var rtn = {
       payload: device.payload,
       action: device.action,
     };
+    console.log("123456",device);
     if(needSave) {
       return device.save(function(err) {
         return res.ok(action);

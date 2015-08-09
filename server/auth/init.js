@@ -1,9 +1,9 @@
-require('../models');
+var User = require('mongoose').model('User');
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user._id);
 });
 
 passport.deserializeUser(function(id, done) {

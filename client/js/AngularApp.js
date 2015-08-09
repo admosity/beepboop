@@ -9,6 +9,7 @@ require('./models');
 
 var app = angular.module('App', [
   'ui.router',
+  'ngMaterial',
   'App.controllers',
   'App.directives',
   'App.services',

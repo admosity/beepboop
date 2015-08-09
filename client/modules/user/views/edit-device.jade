@@ -22,17 +22,24 @@ div.dashboard-wrapper
             a(href="" class="btn btn-purple btn-sm") Add Filter
           br
           p.info create conditions for your widget to function. example: if LIGHT = ON
-          label variable
-          input(type="text" placeholder="Var")
-          label operator
-          select(name="")
-            option >
-            option <
-            option >=
-            option <=
-            option =
-          label variable
-          input(type="text" placeholder="Var")
+          div.filter-item
+            h2 filter 1
+              a(href="")
+                i.fa.fa-minus-circle
+            div.column-4
+              label variable
+              input(type="text" placeholder="Var")
+            div.column-4
+              label operator
+              select(name="")
+                option >
+                option <
+                option >=
+                option <=
+                option =
+            div.column-4
+              label variable
+              input(type="text" placeholder="Var")
           br
           label.center
             input(type="checkbox" checked) 

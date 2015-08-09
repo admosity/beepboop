@@ -111,4 +111,18 @@ module.exports = [
       }
     }
   },
+
+
+  {
+    name: 'demo',
+    state: {
+      url: '/demo',
+      views: {
+        content: {
+          templateUrl: viewsPrefix + 'demo.html',
+          controller: 'DemoCtrl',
+        },
+      }
+    }
+  }
 ]

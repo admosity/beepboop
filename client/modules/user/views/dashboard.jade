@@ -1,9 +1,17 @@
 include ../partials/sidebar.jade
 
 div.dashboard-wrapper
-  div.dashboard-header
+  div.dashboard-header.row
     h1 dashboard
-    p my widgets
+    div.column-4
+      h1 5
+      h2 devices
+    div.column-4
+      h1 5
+      h2 widgets
+    div.column-4
+      h1 0
+      h2 sold
   div.dashboard-content
     div.featured-widgets
       div(class="widget column-4" style="background-image:url('assets/images/example.jpg')")
@@ -39,3 +47,4 @@ div.dashboard-wrapper
           h1 widget name
           p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
           a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
+  

@@ -287,6 +287,14 @@ p.info {
   }
 }
 
+.add-filter {
+  color:$var-purple;
+  margin-left:5px;
+  &:hover {
+    color:$lighter-purple;
+  }
+}
+
 // login page
 
 .login-form {
@@ -330,7 +338,8 @@ p.info {
   background-color: rgba(255, 255, 255, 0.84);
   border-radius:2px;
   border:1px solid $var-purple;
-  margin: 130px auto;
+  margin: 200px auto 100px;
+  padding: 1em 0 3em;
   width: 880px;
   float: left;
 }

@@ -19,7 +19,8 @@ div.dashboard-wrapper
           input(type="text" placeholder="Callback URL")
           
           h2 filters
-            a(href="" class="btn btn-purple btn-sm") Add Filter
+            a(href="" class="add-filter") 
+              i.fa.fa-plus-circle
           br
           p.info create conditions for your widget to function. example: if LIGHT = ON
           div.filter-item
@@ -44,9 +45,7 @@ div.dashboard-wrapper
           label.center
             input(type="checkbox" checked) 
             | &nbsp; sell this widget
-          br
-          br
-          label Venmo Username
+          label.clear Venmo Username
           input(type="text" placeholder="Venmo Username")
           br
           p.info Please enter your Venmo username in order to accept payments on the BeepBoop Marketplace.

@@ -2,9 +2,9 @@ wifi.setmode(wifi.STATION)
 wifi.sta.config("chocolatethunder","11111111")
 ip = wifi.sta.getip()
 
-deviceId = "1"
-readKey = "1"
-writeKey = "1"
+deviceId = "55c6af1b2d82c1030022dc1b"
+readKey = "V1l2V05yj"
+writeKey = "VyhEAq1i"
 
 toggle = 1
 connected = 0
@@ -21,8 +21,8 @@ tmr.alarm(0, 1000, 1, function()
         end
     else
         --Update sensor stuff
-        if count > 10 then
-            sendNetwork(1)
+        if count % 10 == 0 then
+            readBeepBoop(count)
             count = 0
         end
         count = count + 1
@@ -46,7 +46,7 @@ tmr.alarm(0, 1000, 1, function()
     
 end)
 
-function sendNetwork(status)
+function readBeepBoop(status)
     print("Update host")
     conn=net.createConnection(net.TCP, 0)
     
@@ -63,12 +63,7 @@ function sendNetwork(status)
         print('\nSending to host') 
         conn:send("GET /api/devices/"
         ..deviceId
-        .."/payload?write="
-        ..writeKey
-        .."&read="
-        ..readKey
-        .."&payload="
-        ..status
+        .."/payload?read="..readKey
         .." HTTP/1.1\r\n"
         .."Host: beepboop.herokuapp.com\r\n"
         .."Connection: close\r\nAccept: */*\r\n\r\n")
@@ -80,6 +75,4 @@ function sendNetwork(status)
     
     conn:connect(80,"beepboop.herokuapp.com")
 end
-
-sendNetwork(1);
-
+-- sendNetwork(1);

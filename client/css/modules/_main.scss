@@ -538,6 +538,14 @@ p.info {
     color:$var-purple;
     text-align: center;
   }
+  .alert {
+    background:$var-red;
+    color:$var-white;
+    text-align: center;
+    p.info {
+      background:none;
+    }
+  }
   .dashboard-content {
     padding:1em;
     .widget {

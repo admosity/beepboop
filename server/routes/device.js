@@ -130,9 +130,11 @@ function generateResolved(payload, str) {
 }
 
 function sendTwilio(api){
+  console.log("send twilio");
   var client = require('twilio')(api.creds.sid, api.creds.authToken);
   //Send an SMS text message
   client.sendMessage(api.details, function(err, responseData) {
+    console.log(err, responseData);
   });
 }
 

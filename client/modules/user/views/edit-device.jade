@@ -35,7 +35,7 @@ div.dashboard-wrapper
 
             div(ng-repeat="a in device.API" ng-switch="a.name")
               div.api-item(ng-switch-when="twilio")
-                h2 twilio
+                h2 Twilio
                   a(href="" ng-click="removeApi($index)")
                     i.fa.fa-minus-circle
                 label SID
@@ -49,14 +49,19 @@ div.dashboard-wrapper
                 label message
                 textarea(placeholder="Message" ng-model="a.details.body")
               div.api-item(ng-switch-when="twitter")
-                h2 twitter
-                  a(href="" ng-click="removeApi($index)")
-                    i.fa.fa-minus-circle
-                label message
-                textarea(placeholder="Tweet Message" ng-model="a.details.message")
-              //- div.column-1(ng-if="device.API.length")
-              //-   a(href="" class="add-filter lrg" ng-click="removeApi($index)") 
-              //-     i.fa.fa-minus-circle
+                h2 Twitter
+                    a(href="" ng-click="removeApi($index)")
+                      i.fa.fa-minus-circle
+                  label Consumer Key
+                  input(type="text" placeholder="Consumer Key" ng-model="a.creds.consumer_key")
+                  label Consumer Secret
+                  input(type="text" placeholder="Send Email To" ng-model="a.creds.consumer_secret")
+                  label Access Token Key
+                  input(type="text" placeholder="Send Email From" ng-model="a.creds.access_token_key")
+                  label Access Token Secret
+                  input(type="text" placeholder="Subject" ng-model="a.creds.access_token_secret")
+                  label Tweet
+                  textarea(placeholder="Tweet" ng-model="a.details.tweet")
               div.api-item(ng-switch-when="sendgrid")
                 h2 SendGrid
                   a(href="" ng-click="removeApi($index)")
@@ -64,11 +69,11 @@ div.dashboard-wrapper
                 label API Key
                 input(type="text" placeholder="API Key" ng-model="a.creds.key")
                 label To
-                input(type="text" placeholder="Send Email To" ng-model="a.creds.authToken")
+                input(type="text" placeholder="Send Email To" ng-model="a.details.to")
                 label From
                 input(type="text" placeholder="Send Email From" ng-model="a.details.from")
                 label Subject
-                input(type="text" placeholder="Subject" ng-model="a.details.to")
+                input(type="text" placeholder="Subject" ng-model="a.details.subject")
                 label Body
                 textarea(placeholder="Message" ng-model="a.details.body")
             

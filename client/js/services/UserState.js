@@ -56,6 +56,22 @@ module.service('UserState', function($state, $stateParams, $q, $rootScope, $http
       this.devices.push(device);
     };
 
+    prototype.removeDevice = function(device) {
+
+      var found = -1;
+      for (var i = 0; i < this.devices.length; i++) {
+        if(this.devices[i]._id == device._id) {
+          found = i;
+          break;
+        }
+      };
+
+      if(found > -1) {
+        this.devices.splice(found, 1);
+      }
+      $state.go('dashboard');
+    };
+
     prototype.reset = function() {
       this.devices = [];
       this._user = null;

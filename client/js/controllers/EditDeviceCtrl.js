@@ -31,6 +31,10 @@ module.controller('EditDeviceCtrl', function($scope, Device, UserState, $mdDialo
       })
   };
 
+  $scope.removeDevice = function(device) {
+    $scope.device.remove();
+  };
+
   $scope.addNewApi = function(api) {
     $scope.device.API.push({
       details: {

@@ -538,14 +538,30 @@ p.info {
     color:$var-purple;
     text-align: center;
   }
+  .alert {
+    background:$var-red;
+    color:$var-white;
+    text-align: center;
+    p.info {
+      background:none;
+    }
+  }
   .dashboard-content {
     padding:1em;
     .widget {
       border:1px dashed $lighter-purple;
+      height:150px;
+      color:$var-purple;
+      p {
+        color:$var-purple;
+      }
       &:hover {
         background:$lighter-purple;
         color:$var-white;
         border:1px solid $var-purple;
+        p {
+          color:$var-white;
+        }
       }
     }
     .featured-widgets {

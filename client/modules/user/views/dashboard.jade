@@ -55,11 +55,7 @@ div.dashboard-wrapper
         div.widget-inner
 
           h1 {{d.name}}
+          p status:
           inject-d(ng-init="payload = d.payload" d="d")
-          //- h2 STATUS: ONLINE
-          //- h2 Fridge Closed 
-          //- p (Last updated: 2 hours ago)
-          //- br
-          //- a(href="#" ng-click="UserState.editDevice(d)" class="btn block btn-white") view device
       
   

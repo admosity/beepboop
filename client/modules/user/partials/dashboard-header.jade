@@ -11,4 +11,7 @@ div.dashboard-header.row
     h1 {{UserState.devices.length}}/10
     h2
       i.fa.fa-key &nbsp; api keys
-      a(href="#" ui-sref="buy-key" class="btn btn-sm btn-purple") Buy More
+
+div.column-12.alert
+  p.info You have used a maximum of 10 devices at once. Please purchase another batch of 10 for just $2.00. It helps us keep the lights on.
+    a(href="#" ui-sref="buy-key" class="btn btn-sm btn-purple") Buy More

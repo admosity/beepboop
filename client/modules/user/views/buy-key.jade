@@ -1,0 +1,28 @@
+include ../partials/sidebar.jade
+
+div.dashboard-wrapper
+  div.dashboard-header.row
+    div.column-4
+      h1 {{UserState.devices.length}}
+      h2 
+        i.fa.fa-plug &nbsp; devices
+    div.column-4
+      h1 1
+      h2 
+        i.fa.fa-users &nbsp; public
+    div.column-4
+      h1 10/10
+      h2 
+        i.fa.fa-key &nbsp; api keys
+        a(href="#" ui-sref="buy-key" class="btn btn-sm btn-purple") Buy More
+  div.dashboard-content
+    div.buy-form
+      div.buy-inner
+        h1 buy 10 more keys
+        p.info You can use a maximum of 10 keys at a time. Use this form to purchase another batch of 10 for only $2.00
+        br
+        h2 $2.00
+        br
+        form(ng-submit="")
+          input(type="text" placeholder="shit")
+          input(type="submit" class="btn btn-purple block" value="Buy")

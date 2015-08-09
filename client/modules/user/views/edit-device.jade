@@ -15,8 +15,6 @@ div.dashboard-wrapper
           input(type="text" placeholder="Device Key" disabled ng-model="device._id")
           label endpoint URL
           input(type="text" placeholder="Endpoint URL" disabled ng-model="device.endpointUrl")
-          label callback URL
-          input(type="text" placeholder="Callback URL")
           div.api
             h2 APIs
             br
@@ -24,6 +22,7 @@ div.dashboard-wrapper
             br
             div.column-10
               select(name="")
+                option(value="") Custom API
                 option(value="") Twilio
                 option(value="") Twitter
                 option(value="") Venmo
@@ -32,6 +31,12 @@ div.dashboard-wrapper
                 i.fa.fa-plus-circle
             
             br
+            div.api-item
+              h2 custom api
+                a(href="")
+                  i.fa.fa-minus-circle
+              label callback URL
+              input(type="text" placeholder="Callback URL")
             div.api-item
               h2 twitter
                 a(href="")

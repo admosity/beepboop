@@ -15,7 +15,7 @@ module.exports = [
         // },
         content: {
           templateUrl: viewsPrefix + 'dashboard.html',
-          // controller: 'LoginCtrl',
+          controller: 'DashboardCtrl',
         },
       }
     }

@@ -1,7 +1,7 @@
 
 var module = require('./module');
 
-module.service('UserState', function($state) {
+module.service('UserState', function($state, $stateParams, $q, $rootScope) {
   
   var UserState = (function() {
     UserState.displayName = 'UserState';
@@ -33,10 +33,27 @@ module.service('UserState', function($state) {
       this.devices.push(device);
     };
 
+    prototype.reset = function() {
+      this.devices = [];
+      this._user = null;
+      this.devicesLoaded = false;
+    };
+
+    prototype.logout = function() {
+      var self = this;
+      this._user.logout()
+        .finally(function() {
+          $state.go('home');
+        });
+
+    };
+
 
 
     return UserState;
   })();
+
+
 
 
   return new UserState();

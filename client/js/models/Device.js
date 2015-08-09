@@ -15,7 +15,7 @@ module.service('Device', function($http, UserState, $q, $compile, $sce) {
           this.endpointUrl = window.location.protocol + '//' + window.location.hostname + '/api/devices/' + _device._id + '/payload?read=' + this[k];
         }
       }
-
+      
       // if(!(_device instanceof Device)) {
       //   this.template = $sce.trustAsHtml(this.template);
       // }

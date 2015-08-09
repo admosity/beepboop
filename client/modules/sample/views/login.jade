@@ -4,9 +4,9 @@ div.outer-wrapper
     div.login-form
       div.login-inner
         h1 sign in
-        form(action="")
-          input(type="email" placeholder="Email Address")
-          input(type="password" placeholder="Password")
+        form(ng-submit="login()")
+          input(type="email" placeholder="Email Address" ng-model="loginForm.username")
+          input(type="password" placeholder="Password" ng-model="loginForm.password")
           input(type="submit" class="btn btn-purple" value="Sign In")
           
           
@@ -16,7 +16,7 @@ div.outer-wrapper
     div.register
       div.register-inner
         h1 register
-        form(action="")
-          input(type="email" placeholder="Email Address")
-          input(type="password" placeholder="Password")
+        form(ng-submit="signup()")
+          input(type="email" placeholder="Email Address" ng-model="signupForm.username")
+          input(type="password" placeholder="Password" ng-model="signupForm.password")
           input(type="submit" class="btn btn-purple" value="Register")

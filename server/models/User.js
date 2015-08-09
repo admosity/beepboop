@@ -9,17 +9,12 @@ var UserSchema = new Schema({
   password: { type: String, required: true },
 }, {collection: 'User'});
 
-////////////////////////
-// User model
-////////////////////////
-
-var User = mongoose.model('User', UserSchema);
 
 ////////////////////////
 // Statics
 ////////////////////////
 UserSchema.statics.createUser = function(username, password, callback) {
-  User.findOne({username: username}, function(err, user) {
+  this.model('User').findOne({username: username}, function(err, user) {
     if(user) {
       return callback(new Error('User already exists.'));
     } else {
@@ -57,3 +52,11 @@ UserSchema.methods.validPassword = function(password, callback) {
 UserSchema.methods.getDevices = function(cb) {
   return this.model('Device').find({owner: this._id}, cb);
 };
+
+
+
+////////////////////////
+// User model
+////////////////////////
+
+var User = mongoose.model('User', UserSchema);

@@ -51,6 +51,21 @@ module.exports = [
     }
   },
   {
+    name: 'buy-thanks',
+    state: {
+      url: '/buy-thanks',
+      views: {
+        // sidebar: {
+        //   templateUrl: partialsPrefix + 'sidebar.html',
+        // },
+        content: {
+          templateUrl: viewsPrefix + 'buy-thanks.html',
+          controller: 'BuyKeyCtrl',
+        },
+      }
+    }
+  },
+  {
     name: 'edit-device',
     state: {
       url: '/edit-device/:id',

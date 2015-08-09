@@ -112,10 +112,10 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
     };
     if(needSave) {
       return device.save(function(err) {
-        return res.ok(action);
+        return res.ok(rtn);
       });
     } else {
-      return res.ok(action);
+      return res.ok(rtn);
     }
   }else if(needSave){
     return device.save(function(err) {

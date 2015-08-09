@@ -4,11 +4,11 @@
 
 #define WIFI_AP "chocolatethunder"
 #define WIFI_PASSWORD "11111111"
-#define WIFI_AUTH LWIFI_WEP  // choose from LWIFI_OPEN, LWIFI_WPA, or LWIFI_WEP.
+#define WIFI_AUTH LWIFI_WPA  // choose from LWIFI_OPEN, LWIFI_WPA, or LWIFI_WEP.
 
 #define SITE_URL "beepboop.herokuapp.com"
-#define DEVICE_ID "1"
-#define WRITEKEY "2"
+#define DEVICE_ID "55c6af1b2d82c1030022dc1b"
+#define WRITEKEY "VyhEAq1i"
 #define READKEY "3"
 
 LWiFiClient c;
@@ -88,7 +88,7 @@ void setup()
 
 void buttonAction(){
   Serial.println("PRESS DAT SHIT");
-  //sendUpdate(1);
+  sendUpdate(1);
 }
 
 void loop()

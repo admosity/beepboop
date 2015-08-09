@@ -5,3 +5,4 @@ require('./module');
  */
 
  require('./LoginCtrl');
+ require('./NewDeviceCtrl');

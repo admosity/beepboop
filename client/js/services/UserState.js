@@ -12,7 +12,7 @@ module.service('UserState', function($state) {
      * @param {UserState}
      */
     function UserState() {
-      
+      this.devices = [];
     }
 
     Object.defineProperties(prototype, {
@@ -27,6 +27,12 @@ module.service('UserState', function($state) {
         }
       }
     });
+
+
+    prototype.addNewDevice = function(device) {
+      this.devices.push(device);
+    };
+
 
 
     return UserState;

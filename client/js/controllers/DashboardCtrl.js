@@ -11,7 +11,10 @@ module.controller('DashboardCtrl', function($scope, Device) {
       var channel = pusher.subscribe(key);
       channels.push(channel);
       var updatePusher = function(data) {
-        device.payload = data.message;
+        angular.copy(data.message, device.payload);
+        // device.payload = data.message;
+        console.log(device.payload);
+        if(!$scope.$$phase) $scope.$apply();
       };
       pushers.push(updatePusher);
       channel.bind('update', updatePusher);

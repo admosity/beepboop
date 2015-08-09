@@ -67,7 +67,7 @@ router
 router.post('/', function(req, res){
   var user = req.user;
   var post = req.body;
-  if(user && post.device){
+  if(user && post.name){
     var writeKey = shortid.generate();
     var readKey = shortid.generate();
 

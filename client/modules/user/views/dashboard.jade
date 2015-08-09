@@ -2,22 +2,28 @@ include ../partials/sidebar.jade
 
 div.dashboard-wrapper
   div.dashboard-header.row
-    h1 dashboard
     div.column-4
       h1 5
-      h2 devices
+      h2 
+        i.fa.fa-plug &nbsp; devices
     div.column-4
-      h1 5
-      h2 widgets
+      h1 1
+      h2 
+        i.fa.fa-users &nbsp; public
     div.column-4
-      h1 0
-      h2 sold
+      h1 2
+      h2 
+        i.fa.fa-code-fork &nbsp; forked
   div.dashboard-content
+    
     div.featured-widgetsul
-      //- li()
-      div(class="widget column-4" ng-repeat="d in UserState.devices"  style="background-image:url('/assets/images/example.jpg')")
+      div(class="widget column-4" ng-repeat="d in UserState.devices")
         div.widget-inner
           h1 {{d.name}}
-          a(href="#" ng-click="UserState.editDevice(d)" class="btn block btn-white") edit widget
+          h2 STATUS: ONLINE
+          h2 Fridge Closed 
+          p (Last updated: 2 hours ago)
+          br
+          a(href="#" ng-click="UserState.editDevice(d)" class="btn block btn-white") view device
       
   

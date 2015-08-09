@@ -7,7 +7,6 @@ div.dashboard-wrapper
     div.device-form
       div.device-inner
         h1 edit device
-          a(href="" class="btn btn-sm btn-purple" ui-sref="edit-widget") edit widget
         form(ng-submit="updateDevice($event)")
           label device name
           input(type="text" placeholder="Bathroom Sensor" ng-model="device.name")

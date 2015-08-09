@@ -30,7 +30,7 @@ var DeviceSchema = new Schema({
   isPublic:    {type: Boolean, default: false},
 
 
-}, {collection: 'Device'});
+}, {collection: 'Device', versionKey: false});
 
 ////////////////////////
 // Class methods for device 
@@ -60,9 +60,7 @@ DeviceSchema.methods.createNewDeviceFromProduct = function() {
 
 DeviceSchema.methods.updateDevice = function(properties) {
   for(var k in properties) {
-    if(properties.hasOwnProperty(k)) {
-      this[k] = properties[k];
-    }
+    this[k] = properties[k];
   }
 };
 

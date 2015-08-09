@@ -33,21 +33,68 @@ div.dashboard-wrapper
               input(type="text" placeholder="Var")
             div.column-4
               label operator
+          div.api
+            h2 APIs
+            br
+            p.info connect APIs with your device
+            br
+            div.column-10
               select(name="")
-                option >
-                option <
-                option >=
-                option <=
-                option =
-            div.column-4
-              label variable
-              input(type="text" placeholder="Var")
-          br
-          label.center
-            input(type="checkbox" checked) 
-            | &nbsp; sell this widget
-          label.clear Venmo Username
-          input(type="text" placeholder="Venmo Username")
-          br
-          p.info Please enter your Venmo username in order to accept payments on the BeepBoop Marketplace.
+                option(value="") Custom API
+                option(value="") Twilio
+                option(value="") Twitter
+                option(value="") Venmo
+            div.column-1
+              a(href="" class="add-filter lrg") 
+                i.fa.fa-plus-circle
+            
+            br
+            div.api-item
+              h2 custom api
+                a(href="")
+                  i.fa.fa-minus-circle
+              label callback URL
+              input(type="text" placeholder="Callback URL")
+            div.api-item
+              h2 twitter
+                a(href="")
+                  i.fa.fa-minus-circle
+              label api key
+              input(type="text" placeholder="918237192837129873")
+            br
+          div.filters
+            h2 filters
+              a(href="" class="add-filter") 
+                i.fa.fa-plus-circle
+            br
+            p.info create conditions for your widget to function. example: if LIGHT = ON
+            div.filter-item
+              h2 filter 1
+                a(href="")
+                  i.fa.fa-minus-circle
+              div.column-4
+                label variable
+                input(type="text" placeholder="Var")
+              div.column-4
+                label operator
+                select(name="")
+                  option >
+                  option <
+                  option >=
+                  option <=
+                  option =
+              div.column-4
+                label variable
+                input(type="text" placeholder="Var")
+          //- br
+          //- label.center
+          //-   input(type="checkbox" checked) 
+          //-   | &nbsp; sell this widget
+          //- label.clear Venmo Username
+          //- input(type="text" placeholder="Venmo Username")
+          //- 
+          //- p.info Please enter your Venmo username in order to accept payments on the BeepBoop Marketplace.
           input(type="submit" class="btn btn-purple" value="Save")
+          
+          p.info Removing this device will delete any widgets created within it.
+          a(href="#" class="btn block btn-small btn-remove") Remove Device

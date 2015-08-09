@@ -8,6 +8,16 @@ var Router = require('express').Router
 require('../models/Device');
 var Device = mongoose.model('Device');
 
+var Pusher = require('pusher');
+
+//fuck it commit api keys
+var pusher = new Pusher({
+  appId: '134371',
+  key: 'e5e0a876b1c4b665adc6',
+  secret: '0e630ad343ec67ab9f11',
+  encrypted: true
+});
+pusher.port = 443;
 
 function loadDeviceMiddleware(req, res, next) {
   Device.findById(req.params.id, function(err, device) {
@@ -102,6 +112,10 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
   var needSave = false;
   if(query.write && query.write == req.device.writeKey && query.payload) {
     device.payload = query.payload;
+    var key = 'device_' + device.readKey;
+    pusher.trigger(key, 'update', {
+      "message": device.payload
+    });
     needSave = true;
   }
   

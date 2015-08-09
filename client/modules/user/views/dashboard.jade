@@ -4,7 +4,7 @@ div.dashboard-wrapper
   div.dashboard-header.row
     h1 dashboard
     div.column-4
-      h1 5
+      h1 {{UserState.devices.length}}
       h2 devices
     div.column-4
       h1 5
@@ -53,4 +53,11 @@ div.dashboard-wrapper
       //-     h1 widget name
       //-     p measures the size of your balls. helps you party like a fucking champion. if you are awesome, this widget is for you.
       //-     a(href="#" ui-sref="edit-device" class="btn block btn-white") edit widget
+    //- div.featured-widgetsul
+    //-   //- li()
+    //-   div(class="widget column-4" ng-repeat="d in UserState.devices"  style="background-image:url('/assets/images/example.jpg')")
+    //-     div.widget-inner
+    //-       h1 {{d.name}}
+    //-       a(href="#" ng-click="UserState.editDevice(d)" class="btn block btn-white") edit widget
+      
   

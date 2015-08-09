@@ -47,6 +47,17 @@ router.get('/', function(req, res){
 
 router
   .route('/:id')
+  .delete(loadDeviceMiddleware, function(req, res) {
+    console.log(req.user._id);
+    console.log(req.device.owner);
+    if(req.user._id.toString() == req.device.owner.toString()) {
+      req.device.remove(function(err, product) {
+        return res.ok();
+      });
+    } else {
+      return res.error(403);
+    }
+  })
   .get(loadDeviceMiddleware, function(req, res) {
     var id = req.params.id;
     return Device.findOne({_id: id, owner: req.user }, function(err, device) {
@@ -137,6 +148,24 @@ function sendTwilio(api, payload){
   });
 }
 
+function sendTweet(api, payload){
+
+}
+
+function sendSendGrid(api, payload){
+  var sendgrid  = require('sendgrid')(api.creds.key);
+  var subject = generateResolved(payload, api.details.subject);
+  var body = generateResolved(payload, api.details.body);
+  sendgrid.send({
+    to:       api.details.to,
+    from:     api.details.from,
+    subject:  subject,
+    text:     body
+  }, function(err, json) {
+    console.log(err, json);
+  });
+}
+
 router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
   var query = req.query;
   var device = req.device;
@@ -149,6 +178,10 @@ router.get('/:id/payload', loadDeviceMiddleware, function(req, res) {
       switch(a.name) {
         case 'twilio':
           sendTwilio(a, device.payload); 
+        case 'twitter':
+          sendTweet(a, device.payload); 
+        case 'sendgrid':
+          sendSendGrid(a, device.payload); 
       }
       cb();
     });

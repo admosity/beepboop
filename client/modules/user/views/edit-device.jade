@@ -28,6 +28,7 @@ div.dashboard-wrapper
                 option(value="") Custom API
                 option(value="twilio") Twilio
                 option(value="twitter") Twitter
+                option(value="sendgrid") SendGrid
             div.column-1
               a(href="" class="add-filter lrg" ng-click="addNewApi(api)") 
                 i.fa.fa-plus-circle
@@ -56,7 +57,20 @@ div.dashboard-wrapper
               //- div.column-1(ng-if="device.API.length")
               //-   a(href="" class="add-filter lrg" ng-click="removeApi($index)") 
               //-     i.fa.fa-minus-circle
-
+              div.api-item(ng-switch-when="sendgrid")
+                h2 twilio
+                  a(href="" ng-click="removeApi($index)")
+                    i.fa.fa-minus-circle
+                label API Key
+                input(type="text" placeholder="API Key" ng-model="a.creds.key")
+                label To
+                input(type="text" placeholder="Send Email To" ng-model="a.creds.authToken")
+                label From
+                input(type="text" placeholder="Send Email From" ng-model="a.details.from")
+                label Subject
+                input(type="text" placeholder="Subject" ng-model="a.details.to")
+                label Body
+                textarea(placeholder="Message" ng-model="a.details.body")
             
 
           //- div.filters
@@ -93,4 +107,4 @@ div.dashboard-wrapper
           input(type="submit" class="btn btn-purple" value="Save")
           
           p.info Removing this device will delete any widgets created within it.
-          a(href="#" class="btn block btn-small btn-remove") Remove Device
+          a(class="btn block btn-small btn-remove" ng-click="removeDevice()") Remove Device

@@ -30,6 +30,7 @@
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
     "pusher": "^1.0.6",
+    "sendgrid": "^1.9.2",
     "serve-favicon": "^2.2.1",
     "serve-static": "^1.9.3",
     "shortid": "^2.2.2",

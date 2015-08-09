@@ -16,14 +16,14 @@ div.dashboard-wrapper
           input(type="text" placeholder="Read Payload URL" disabled ng-model="device.endpointUrl")
           label write payload URL
           input(type="text" placeholder="Write Payload URL" disabled ng-model="device.payloadUrl")
-          
+          label Template
           textarea(placeholder="Default Template" ng-model="device.template")
           div.api
             h2 APIs
             br
             p.info connect APIs with your device
             br
-            div.column-10
+            div.column-11
               select(name="" ng-model="api")
                 option(value="") Custom API
                 option(value="twilio") Twilio

@@ -18,7 +18,7 @@ div.dashboard-wrapper
         md-row-height-gt-md="1:1" md-row-height="2:2"
         md-gutter="12px" md-gutter-gt-sm="8px")
         md-grid-tile(ng-repeat='d in UserState.devices')
-          inject-d
+          inject-d(ng-init="payload = d.payload" d="d")
 
       //- div(class="widget column-4" style="background-image:url('/assets/images/example.jpg')")
       //-   div.widget-inner

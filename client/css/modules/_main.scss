@@ -492,6 +492,14 @@ p.info {
   }
   .dashboard-content {
     padding:1em;
+    .widget {
+      border:1px dashed $lighter-purple;
+      &:hover {
+        background:$lighter-purple;
+        color:$var-white;
+        border:1px solid $var-purple;
+      }
+    }
     .featured-widgets {
       background:none;
     }

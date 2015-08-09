@@ -2,23 +2,24 @@ include ../partials/sidebar.jade
 
 div.dashboard-wrapper
   div.dashboard-header.row
-    h1 dashboard
     div.column-4
       h1 {{UserState.devices.length}}
       h2 devices
     div.column-4
-      h1 5
-      h2 widgets
+      h1 1
+      h2 
+        i.fa.fa-users &nbsp; public
     div.column-4
-      h1 0
-      h2 sold
+      h1 2
+      h2 
+        i.fa.fa-code-fork &nbsp; forked
   div.dashboard-content
     div.featured-widgets
-      md-grid-list(md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
-        md-row-height-gt-md="1:1" md-row-height="2:2"
-        md-gutter="12px" md-gutter-gt-sm="8px")
-        md-grid-tile(ng-repeat='d in UserState.devices')
-          inject-d(ng-init="payload = d.payload" d="d")
+      //- md-grid-list(md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+      //-   md-row-height-gt-md="1:1" md-row-height="2:2"
+      //-   md-gutter="12px" md-gutter-gt-sm="8px")
+      //-   md-grid-tile(ng-repeat='d in UserState.devices')
+      //-     inject-d(ng-init="payload = d.payload" d="d")
 
       //- div(class="widget column-4" style="background-image:url('/assets/images/example.jpg')")
       //-   div.widget-inner
@@ -59,5 +60,17 @@ div.dashboard-wrapper
     //-     div.widget-inner
     //-       h1 {{d.name}}
     //-       a(href="#" ng-click="UserState.editDevice(d)" class="btn block btn-white") edit widget
+    
+    div.featured-widgetsul
+      div(class="widget column-4" ng-repeat="d in UserState.devices")
+        div.widget-inner
+
+          h1 {{d.name}}
+          inject-d(ng-init="payload = d.payload" d="d")
+          //- h2 STATUS: ONLINE
+          //- h2 Fridge Closed 
+          //- p (Last updated: 2 hours ago)
+          //- br
+          //- a(href="#" ng-click="UserState.editDevice(d)" class="btn block btn-white") view device
       
   

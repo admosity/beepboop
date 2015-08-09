@@ -12,11 +12,11 @@ div.sidebar
            i(class="fa fa-plug")
             | &nbsp; {{d.name}}
 
+    //- li.separate
+    //-   a(href="#" ui-sref="marketplace")
+    //-     i(class="fa fa-credit-card")
+    //-      | &nbsp; marketplace
     li.separate
-      a(href="#" ui-sref="marketplace")
-        i(class="fa fa-credit-card")
-         | &nbsp; marketplace
-    li
       a(href="#" ui-sref="home" ng-click="UserState.logout()")
         i(class="fa fa-sign-out")
          | &nbsp; logout

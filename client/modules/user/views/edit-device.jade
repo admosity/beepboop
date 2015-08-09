@@ -2,11 +2,11 @@ include ../partials/sidebar.jade
 
 div.dashboard-wrapper
   div.dashboard-header
-    h1 dashboard
+    h1 edit device
   div.dashboard-content
     div.device-form
       div.device-inner
-        h1 edit device
+        //- h1 edit device
         form(ng-submit="updateDevice($event)")
           label device name
           input(type="text" placeholder="Bathroom Sensor" ng-model="device.name")

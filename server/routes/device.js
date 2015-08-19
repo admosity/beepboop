@@ -161,14 +161,14 @@ function sendTweet(api, payload, device){
     access_token_secret: api.creds.access_token_secret
   });
 
-  client.post('statuses/update', {status: generateResolved(api.details.tweet)},  function(error, tweet, response){
+  client.post('statuses/update', {status: generateResolved(payload, api.details.tweet)},  function(error, tweet, response){
     // if(error) throw error;
-    // console.log(error);
+    console.log(error);
     if(error){
       sendPusher(device, "error", "Twitter Error: " + error[0]['message']);
     }
     // console.log(tweet);  // Tweet body. 
-    // console.log(response);  // Raw response object. 
+    console.log(response);  // Raw response object. 
   });
 }
 

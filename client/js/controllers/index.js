@@ -10,3 +10,4 @@ require('./module');
  require('./EditDeviceCtrl');
  require('./BuyKeyCtrl');
 require('./SingleWidgetCtrl');
+require('./DemoCtrl');

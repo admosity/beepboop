@@ -6,6 +6,9 @@ module.directive('injectD', function($compile) {
       // elem.append(scope.d.template);
       elem.append(scope.d.template);
       $compile(elem.contents())(scope);
+      scope.toNumber = function(val) {
+        return Number(val);
+      };
     }
   }
 })
